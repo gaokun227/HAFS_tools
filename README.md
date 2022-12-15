@@ -9,7 +9,7 @@ We just use the code related to initial vortex correction
 cd sorc/  
 build_tools.sh
 
-Kun has tested the code on Jet, on which all modules have been installed
+Kun has tested the code on Jet, on which all modules have been installed; 
 see modulefiles/modulefile.hafs.jet
 
 
