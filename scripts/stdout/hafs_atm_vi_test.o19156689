@@ -1,6 +1,0 @@
-/var/spool/slurmd/job19156689/slurm_script: line 41: /hafs_pre_job.sh.inc: No such file or directory
-_______________________________________________________________
-Start Epilog v19.04.17 on node x16 for job 19156689 :: Thu Dec 15 19:29:40 GMT 2022
-Job 19156689 (serial) finished for user Kun.Gao in partition xjet with exit code 1:0
-_______________________________________________________________
-End Epilogue v19.04.17 Thu Dec 15 19:29:40 GMT 2022
