@@ -1,0 +1,11 @@
+make[1]: Entering directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/slint'
+ifort -O3 -mcmodel=large -convert big_endian -c kd.F90
+ifort -O3 -mcmodel=large -convert big_endian -c uvxyz.F90
+ifort -O3 -mcmodel=large -convert big_endian -c slint.F90
+/usr/bin/ar rv libslint.a kd.o uvxyz.o slint.o
+/usr/bin/ar: creating libslint.a
+a - kd.o
+a - uvxyz.o
+a - slint.o
+/usr/bin/ranlib libslint.a
+make[1]: Leaving directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/slint'

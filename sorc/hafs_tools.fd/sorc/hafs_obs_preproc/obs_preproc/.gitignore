@@ -1,0 +1,10 @@
+src/configure.obs-preproc
+data/
+bin/
+build/
+data/
+*.mod
+*.o
+log.*.exe
+data
+*.pyc

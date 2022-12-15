@@ -1,0 +1,25 @@
+make[1]: Entering directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/slatec'
+ifort -O3 -mcmodel=large -convert big_endian -c fdump.f
+ifort -O3 -mcmodel=large -convert big_endian -c i1mach.f
+ifort -O3 -mcmodel=large -convert big_endian -c j4save.f
+ifort -O3 -mcmodel=large -convert big_endian -c ssort.f
+ifort -O3 -mcmodel=large -convert big_endian -c xercnt.f
+ifort -O3 -mcmodel=large -convert big_endian -c xerhlt.f
+ifort -O3 -mcmodel=large -convert big_endian -c xermsg.f
+ifort -O3 -mcmodel=large -convert big_endian -c xerprn.f
+ifort -O3 -mcmodel=large -convert big_endian -c xersve.f
+ifort -O3 -mcmodel=large -convert big_endian -c xgetua.f
+/usr/bin/ar rv libslatec.a fdump.o i1mach.o j4save.o ssort.o xercnt.o xerhlt.o xermsg.o xerprn.o xersve.o xgetua.o
+/usr/bin/ar: creating libslatec.a
+a - fdump.o
+a - i1mach.o
+a - j4save.o
+a - ssort.o
+a - xercnt.o
+a - xerhlt.o
+a - xermsg.o
+a - xerprn.o
+a - xersve.o
+a - xgetua.o
+/usr/bin/ranlib libslatec.a
+make[1]: Leaving directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/slatec'

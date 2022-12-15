@@ -1,0 +1,7 @@
+make[1]: Entering directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/spline'
+ifort -O3 -mcmodel=large -convert big_endian -c spline.f90
+/usr/bin/ar rv libspline.a spline.o
+/usr/bin/ar: creating libspline.a
+a - spline.o
+/usr/bin/ranlib libspline.a
+make[1]: Leaving directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/spline'

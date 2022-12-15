@@ -1,0 +1,579 @@
+load the module command
+
+Currently Loaded Modules:
+  1) sutils/default             23) g2/3.4.3
+  2) hpss                       24) bufr/11.4.0
+  3) cmake/3.20.1               25) gfsio/1.4.1
+  4) hpc/1.1.0                  26) landsfcutil/2.4.1
+  5) intel/18.0.5.274           27) bacio/2.4.1
+  6) hpc-intel/18.0.5.274       28) w3nco/2.4.1
+  7) impi/2018.4.274            29) nemsio/2.5.2
+  8) hpc-impi/2018.4.274        30) nemsiogfs/2.5.3
+  9) jasper/2.0.22              31) sfcio/1.4.1
+ 10) zlib/1.2.11                32) sigio/2.3.2
+ 11) png/1.6.35                 33) szip/2.1.1
+ 12) pio/2.5.2                  34) wrf_io/1.1.1
+ 13) esmf/8.2.1b04              35) prod_util/1.2.2
+ 14) fms/2021.04                36) grib_util/1.2.2
+ 15) crtm/2.3.0                 37) hdf5/1.10.6
+ 16) g2tmpl/1.10.0              38) netcdf/4.7.4
+ 17) ip/3.3.3                   39) wgrib2/2.0.8
+ 18) sp/2.3.3                   40) nco/4.9.1
+ 19) w3emc/2.7.3                41) rocoto/1.3.3
+ 20) gftl-shared/v1.3.0         42) intelpython/3.6.5
+ 21) yafyaml/v0.5.1             43) cdo/1.6.7
+ 22) mapl/2.11.0-esmf-8.2.1b04  44) modulefile.hafs.jet
+
+ 
+
++ export vi_warm_start_vmax_threshold=20
++ vi_warm_start_vmax_threshold=20
++ export vi_bogus_vmax_threshold=50
++ vi_bogus_vmax_threshold=50
++ export vi_storm_env=init
++ vi_storm_env=init
++ export vi_storm_relocation=yes
++ vi_storm_relocation=yes
++ export vi_storm_modification=yes
++ vi_storm_modification=yes
++ export vi_ajust_intensity=yes
++ vi_ajust_intensity=yes
++ export vi_ajust_size=yes
++ vi_ajust_size=yes
++ export crfactor=1.0
++ crfactor=1.0
++ export deg_box1=30
++ deg_box1=30
++ export deg_box2=45
++ deg_box2=45
++ '[' yes = yes ']'
++ initopt=0
++ FGAT_MODEL=gfs
++ FGAT_HR=00
++ MERGE_TYPE=vortexreplace
++ TOTAL_TASKS=24
++ NCTSK=24
++ NCNODE=1
++ OMP_NUM_THREADS=1
++ APRUNC='aprun -b -j1 -n24 -N24 -d1 -cc depth'
++ NDATE=/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/prod_util/1.2.2/bin/ndate
++ export NCP=/bin/cp
++ NCP=/bin/cp
++ export NMV=/bin/mv
++ NMV=/bin/mv
++ export 'NLN=/bin/ln -sf'
++ NLN='/bin/ln -sf'
++ export MPISERIAL=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec//hafs_mpiserial.x
++ MPISERIAL=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec//hafs_mpiserial.x
++ export DATOOL=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec//hafs_datool.x
++ DATOOL=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec//hafs_datool.x
+++ cut -c1-8
+++ echo 2022092000
++ PDY=20220920
+++ cut -c9-10
+++ echo 2022092000
++ cyc=00
+++ echo 2022092000
+++ cut -c1-4
++ yr=2022
+++ echo 2022092000
+++ cut -c5-6
++ mn=09
+++ cut -c7-8
+++ echo 2022092000
++ dy=20
+++ echo 2022092000
+++ cut -c9-10
++ hh=00
++ export RESTARTinp=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/hafstmp_test/hafsv0p3_bstest_h3db_vida/com/2021092400/18L/../../2021092318/18L/RESTART
++ RESTARTinp=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/hafstmp_test/hafsv0p3_bstest_h3db_vida/com/2021092400/18L/../../2021092318/18L/RESTART
++ export RESTARTmrg=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_merge
++ RESTARTmrg=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_merge
++ export INTCOMinit=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/atm_init
++ INTCOMinit=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/atm_init
++ export RESTARTinit=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_init
++ RESTARTinit=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_init
++ export RESTARTout=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_vi
++ RESTARTout=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_vi
++ export DATA=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi
++ DATA=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi
++ mkdir -p /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_merge
++ mkdir -p /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/atm_init
++ mkdir -p /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_vi
++ mkdir -p /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi
++ cd /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi
++ '[' 00 = 03 ']'
++ '[' 00 = 06 ']'
++ '[' 00 = 09 ']'
++ cp /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/tmpvit tcvitals.vi
++ gesfhr=6
++ tcvital=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/tcvitals.vi
+++ cut -c68-69
+++ cat /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/tcvitals.vi
++ vmax_vit=49
++ '[' 49 -ge 20 ']'
++ '[' -d /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/hafstmp_test/hafsv0p3_bstest_h3db_vida/com/2021092400/18L/../../2021092318/18L/RESTART ']'
++ cd /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi
++ work_dir=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/prep_init
++ mkdir -p /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/prep_init
++ cd /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/prep_init
++ vortexradius=30
++ res=0.02
++ /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec//hafs_datool.x hafsvi_preproc --in_dir=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_init --debug_level=11 --interpolation_points=4 --infile_date=20220920.000000 --tcvital=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/tcvitals.vi --vortexradius=30 --res=0.02 --nestdoms=0 --out_file=vi_inp_30deg0p02.bin
+hurricane center from obs is:     20.30    -70.10    974.00     25.21
+---vortex replacement info:   -70.10   20.30  30
+ --- call hafsvi_preproc/hafs_datool for w
+---rot-ll grid: nx, ny, cen_lon, cen_lat, dlon, dlat, lon1, lon2, lat1, lat2
+                1501 1501 -70.10000  20.30000   0.02000   0.02000 -15.00000  15.00000 -15.00000  15.00000
+ --- read grid info from /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_init/grid_spec.nc
+  domain dims:     (1:1) --> (768:1) --> (768:768) --> (1:768)
+       T-cell:   4.12  50.11--->-124.12  50.11---> -96.93 -16.18---> -23.07 -16.18
+   grid_lont :-124.12:   4.12 grid_latt : -19.95:  69.95
+  domain dims:     (1:1) --> (769:1) --> (769:769) --> (1:769)
+             :   4.19  50.11--->-124.19  50.11---> -96.96 -16.22---> -23.04 -16.22
+   grid_lon  :-124.19:   4.19 grid_lat  : -20.00:  70.00
+ --- ingrid info:          768          768     -59.8565369      25.1298046     -59.9283142      25.0649204
+ --- call cal_src_dst_grid_weight
+           0 --- dstgrid:         1501         1501     -70.1197815      20.2799969
+---- processing t-cell: 1501:1501
+ ---    i     j        lon        lat
+ t:   750   750     -70.12      20.28
+ll bin size d_ll and max_points:      0.1900000        3000
+min lon for src dst min:   -124.1158600    -87.7595367   -125.0000000
+max lon for src dst max:      4.1158528    -52.4404640      5.5000000         687
+min lat for src dst min:    -19.9512634      4.6432805    -20.8999996
+max lat for src dst max:     69.9512177     35.2999992     71.4000015         486
+search grids:   -125.000-->     5.340 :    -20.900-->    71.250
+---sign src to ll grids
+---search nearest src grid for each dst grid
+---search_nearst_grid finished
+ ---    i     j        lon        lat          x          y m(i,j)_lon m(i,j)_lat 
+ t:   750   750
+ t:   750   750     -70.12      20.28        458        419     -70.10      20.23
+    gwt%gwt_t @    750   750     4   458   457   458   459   418   419   419   419
+---- processing u-cell ----
+src grid_lat:      769     769    50.108    50.108   -16.216   -16.216
+src    u lat:      768     769    50.147    50.147   -16.225   -16.225
+src  grid range:-124.19:   4.19;  -20.00:  70.00
+src u-grid range:-124.15:   4.15;  -20.00:  70.00
+dst grid_lat:     1501    1501     4.643     4.643    34.502    34.502
+dst    u lat:     1501    1501     4.643     4.643    34.502    34.502
+dst  grid range: -87.76: -52.44;    4.64:  35.30
+dst u-grid range: -87.76: -52.44;    4.64:  35.30
+ll bin size d_ll and max_points:      0.1900000        3000
+min lon for src dst min:   -124.1491928    -87.7595367   -125.0000000
+max lon for src dst max:      4.1491890    -52.4404640      5.5000000         687
+min lat for src dst min:    -19.9999866      4.6432805    -20.8999996
+max lat for src dst max:     69.9998932     35.2999992     71.4000015         486
+search grids:   -125.000-->     5.340 :    -20.900-->    71.250
+---sign src to ll grids
+---search nearest src grid for each dst grid
+---search_nearst_grid finished
+ u:   750   750     -70.12      20.28        458        419     -70.11      20.30
+---- processing v-cell ----
+ll bin size d_ll and max_points:      0.1900000        3000
+min lon for src dst min:   -124.1541367    -87.7595367   -125.0999985
+max lon for src dst max:      4.1541286    -52.4404640      5.5999999         688
+min lat for src dst min:    -19.9512711      4.6432805    -20.8999996
+max lat for src dst max:     69.9512711     35.2999992     71.4000015         486
+search grids:   -125.100-->     5.430 :    -20.900-->    71.250
+---sign src to ll grids
+---search nearest src grid for each dst grid
+---search_nearst_grid finished
+ v:   750   750     -70.12      20.28        459        419     -70.17      20.23
+ --- record start cputime:   1     22.7602787
+=== record1:   1501  1501    63
+ --- record start cputime:   2     22.7653999
+           0=== record2:  -15.000 -15.000  15.000  15.000 -70.100  20.300
+=== record2:  -15.000 -15.000  15.000  15.000 -70.100  20.300
+ ==== finished record 2 at            0
+ --- record start cputime:   3     22.7656612
+---getting phalf :   64    1    1    1
+---getting delp :  768  768   63    1
+--             src_values:     101.0184937    101.0184937    101.0184937    101.0184937
+--             dst_values:  -999999.0000
+--          remaped value:      101.0185
+ --- record start cputime:   4     38.4071617
+---getting T :  768  768   63    1
+--             src_values:     261.3827515    261.6659241    262.0905762    262.3976135
+--             dst_values:  -999999.0000
+--          remaped value:      261.9650
+ --- record start cputime:   5     52.2194061
+---getting sphum :  768  768   63    1
+--             src_values:       0.0000028      0.0000028      0.0000028      0.0000028
+--             dst_values:  -999999.0000
+--          remaped value:        0.0000
+ --- record start cputime:   6     66.1283188
+---getting u :  768  769   63    1
+---getting v :  769  768   63    1
+--             src_values:      -0.4493280      0.2076872     -0.2718552     -0.5684775
+--             dst_values:  -999999.0000
+--          remaped value:       -0.3062
+--             src_values:      -2.3215098     -2.5747709     -2.5772710     -2.3955240
+--             dst_values:  -999999.0000
+--          remaped value:       -2.5287
+ --- record start cputime:   7     94.5573120
+ --- record start cputime:   8     94.5573730
+---getting W :  768  768   63    1
+--             src_values:       0.0000000      0.0000000      0.0000000      0.0000000
+--             dst_values:  -999999.0000
+--          remaped value:        0.0000
+ --- record start cputime:   9    108.2408524
+---getting phis :  768  768    1    1
+---getting DZ :  768  768   63    1
+--             src_values:   51214.7695312  51208.0312500  51210.7343750  51214.5429688
+--             dst_values:  -999999.0000
+--          remaped value:    51211.5039
+ --- record start cputime:  10    122.4285965
+=== record10:  -84.626   4.643 -52.440  34.502
+ --- record start cputime:  11    122.4851913
+---getting delp :  768  768   63    1
+--             src_values:      64.2470016     64.2470016     64.2470016     64.2470016
+--             dst_values:  -999999.0000
+--          remaped value:       64.2470
+ --- record start cputime:  12    136.4967194
+--             src_values:   97771.2734375  98043.3984375  97830.3593750  97951.7109375
+--             dst_values:  -999999.0000
+--          remaped value:    97821.9531
+ --- record start cputime:  13    136.6716156
+---getting ak :   64    1    1    1
+=== record13:         64.2       137.8       222.0       318.3       428.4       554.4       698.5       863.1      1051.1      1265.8      1510.7      1790.1      2108.4      2470.8      2883.0      3351.5      3883.1      4485.5      5167.1      5937.0      6804.9      7780.8      8875.6     10100.2     11264.4     12190.6     12905.4     13430.9     13785.9     13986.8     14048.0     13982.5     13802.4     13519.3     13144.6     12689.5     12165.3     11583.6     10955.8     10293.6      9608.1      8910.1      8209.7      7516.2      6837.7      6181.2      5552.4      4955.7      4394.4      3870.4      3384.8      2937.6      2528.4      2155.8      1818.2      1513.7      1240.0       995.0       776.2       581.5       408.5       255.3       119.7         0.0
+ --- record start cputime:  14    136.6733551
+---getting bk :   64    1    1    1
+=== record14:      0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.002     0.008     0.018     0.031     0.048     0.068     0.091     0.117     0.147     0.179     0.214     0.251     0.290     0.330     0.371     0.414     0.456     0.498     0.540     0.580     0.619     0.657     0.693     0.726     0.758     0.787     0.814     0.839     0.861     0.882     0.900     0.917     0.932     0.946     0.958     0.968     0.978     0.986     0.993     1.000
+ --- record start cputime:  15    136.6740570
+---getting slmsk :  768  768    1    1
+--             src_values:       0.0000000      0.0000000      0.0000000      0.0000000
+--             dst_values:  -999999.0000
+--          remaped value:        0.0000
+ --- record start cputime:  16    136.8545380
+---getting zorl :  768  768    1    1
+--             src_values:       0.0000038      0.0000204      0.0000150      0.0000290
+--             dst_values:  -999999.0000
+--          remaped value:        0.0000
+ --- record start cputime:  17    137.0269318
+---getting f10m :  768  768    1    1
+--             src_values:       0.9924240      0.9897023      0.9903802      0.9890920
+--             dst_values:  -999999.0000
+--          remaped value:        0.9907
+  === finished hafsvi_preproc ===
+ === finished hafsvi_preproc vi_inp_30deg0p02.bin ===
+
+real	2m25.695s
+user	2m4.378s
+sys	0m19.971s
++ [[ '' -gt 1 ]]
++ vortexradius=45
++ res=0.20
++ /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec//hafs_datool.x hafsvi_preproc --in_dir=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_init --debug_level=11 --interpolation_points=4 --infile_date=20220920.000000 --tcvital=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/tcvitals.vi --vortexradius=45 --res=0.20 --nestdoms=0 --out_file=vi_inp_45deg0p20.bin
+hurricane center from obs is:     20.30    -70.10    974.00     25.21
+---vortex replacement info:   -70.10   20.30  45
+ --- call hafsvi_preproc/hafs_datool for w
+---rot-ll grid: nx, ny, cen_lon, cen_lat, dlon, dlat, lon1, lon2, lat1, lat2
+                 227  227 -70.10000  20.30000   0.20000   0.20000 -22.50000  22.50000 -22.50000  22.50000
+ --- read grid info from /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/RESTART_init/grid_spec.nc
+  domain dims:     (1:1) --> (768:1) --> (768:768) --> (1:768)
+       T-cell:   4.12  50.11--->-124.12  50.11---> -96.93 -16.18---> -23.07 -16.18
+   grid_lont :-124.12:   4.12 grid_latt : -19.95:  69.95
+  domain dims:     (1:1) --> (769:1) --> (769:769) --> (1:769)
+             :   4.19  50.11--->-124.19  50.11---> -96.96 -16.22---> -23.04 -16.22
+   grid_lon  :-124.19:   4.19 grid_lat  : -20.00:  70.00
+ --- ingrid info:          768          768     -59.8565369      25.1298046     -59.9283142      25.0649204
+ --- call cal_src_dst_grid_weight
+           0 --- dstgrid:          227          227     -70.2083511      20.1999645
+---- processing t-cell: 227:227
+ ---    i     j        lon        lat
+ t:   113   113     -70.21      20.20
+ll bin size d_ll and max_points:      0.2900000         120
+min lon for src dst min:   -124.1158600    -98.0457458   -125.5000000
+max lon for src dst max:      4.1158528    -41.9132614      6.0000000         454
+min lat for src dst min:    -19.9512634     -3.6244545    -21.3999996
+max lat for src dst max:     69.9512177     42.9999542     71.9000015         322
+search grids:   -125.500-->     5.870 :    -21.400-->    71.690
+---sign src to ll grids
+---search nearest src grid for each dst grid
+---search_nearst_grid finished
+ ---    i     j        lon        lat          x          y m(i,j)_lon m(i,j)_lat 
+ t:   113   113
+ t:   113   113     -70.21      20.20        459        419     -70.24      20.22
+    gwt%gwt_t @    113   113     4   459   458   459   460   418   419   419   419
+---- processing u-cell ----
+src grid_lat:      769     769    50.108    50.108   -16.216   -16.216
+src    u lat:      768     769    50.147    50.147   -16.225   -16.225
+src  grid range:-124.19:   4.19;  -20.00:  70.00
+src u-grid range:-124.15:   4.15;  -20.00:  70.00
+dst grid_lat:      227     227    -3.600    -3.624    41.087    41.120
+dst    u lat:      227     227    -3.600    -3.624    41.087    41.120
+dst  grid range: -98.05: -41.91;   -3.62:  43.00
+dst u-grid range: -98.05: -41.91;   -3.62:  43.00
+ll bin size d_ll and max_points:      0.2900000         120
+min lon for src dst min:   -124.1491928    -98.0457458   -125.5000000
+max lon for src dst max:      4.1491890    -41.9132614      6.0000000         454
+min lat for src dst min:    -19.9999866     -3.6244545    -21.3999996
+max lat for src dst max:     69.9998932     42.9999542     71.9000015         322
+search grids:   -125.500-->     5.870 :    -21.400-->    71.690
+---sign src to ll grids
+---search nearest src grid for each dst grid
+---search_nearst_grid finished
+ u:   113   113     -70.21      20.20        459        420     -70.23      20.16
+---- processing v-cell ----
+ll bin size d_ll and max_points:      0.2900000         120
+min lon for src dst min:   -124.1541367    -98.0457458   -125.5999985
+max lon for src dst max:      4.1541286    -41.9132614      6.0999999         455
+min lat for src dst min:    -19.9512711     -3.6244545    -21.3999996
+max lat for src dst max:     69.9512711     42.9999542     71.9000015         322
+search grids:   -125.600-->     6.060 :    -21.400-->    71.690
+---sign src to ll grids
+---search nearest src grid for each dst grid
+---search_nearst_grid finished
+ v:   113   113     -70.21      20.20        459        419     -70.17      20.23
+ --- record start cputime:   1      2.5150981
+=== record1:    227   227    63
+ --- record start cputime:   2      2.5192220
+           0=== record2:  -22.500 -22.500  22.500  22.500 -70.100  20.300
+=== record2:  -22.500 -22.500  22.500  22.500 -70.100  20.300
+ ==== finished record 2 at            0
+ --- record start cputime:   3      2.5194199
+---getting phalf :   64    1    1    1
+---getting delp :  768  768   63    1
+--             src_values:     101.0184937    101.0184937    101.0184937    101.0184937
+--             dst_values:  -999999.0000
+--          remaped value:      101.0185
+ --- record start cputime:   4      3.2181749
+---getting T :  768  768   63    1
+--             src_values:     261.8326416    262.0905762    262.3976135    262.6087341
+--             dst_values:  -999999.0000
+--          remaped value:      262.3891
+ --- record start cputime:   5      3.7801571
+---getting sphum :  768  768   63    1
+--             src_values:       0.0000028      0.0000028      0.0000028      0.0000028
+--             dst_values:  -999999.0000
+--          remaped value:        0.0000
+ --- record start cputime:   6      4.3415561
+---getting u :  768  769   63    1
+---getting v :  769  768   63    1
+--             src_values:      -0.8673673     -0.2718552     -0.5684775     -0.4084270
+--             dst_values:  -999999.0000
+--          remaped value:       -0.5610
+--             src_values:      -2.2160237     -2.5772710     -2.3955240     -2.0751879
+--             dst_values:  -999999.0000
+--          remaped value:       -2.3995
+ --- record start cputime:   7      5.8640819
+ --- record start cputime:   8      5.8641300
+---getting W :  768  768   63    1
+--             src_values:       0.0000000      0.0000000      0.0000000      0.0000000
+--             dst_values:  -999999.0000
+--          remaped value:        0.0000
+ --- record start cputime:   9      6.4261308
+---getting phis :  768  768    1    1
+---getting DZ :  768  768   63    1
+--             src_values:   51219.9414062  51210.7343750  51214.5429688  51219.9765625
+--             dst_values:  -999999.0000
+--          remaped value:    51214.4570
+ --- record start cputime:  10      7.1094851
+=== record10:  -90.848  -3.600 -41.913  41.087
+ --- record start cputime:  11      7.1106629
+---getting delp :  768  768   63    1
+--             src_values:      64.2470016     64.2470016     64.2470016     64.2470016
+--             dst_values:  -999999.0000
+--          remaped value:       64.2470
+ --- record start cputime:  12      7.7808199
+--             src_values:   97897.2109375  97830.3593750  97951.7109375  98386.3281250
+--             dst_values:  -999999.0000
+--          remaped value:    97949.0938
+ --- record start cputime:  13      7.7858591
+---getting ak :   64    1    1    1
+=== record13:         64.2       137.8       222.0       318.3       428.4       554.4       698.5       863.1      1051.1      1265.8      1510.7      1790.1      2108.4      2470.8      2883.0      3351.5      3883.1      4485.5      5167.1      5937.0      6804.9      7780.8      8875.6     10100.2     11264.4     12190.6     12905.4     13430.9     13785.9     13986.8     14048.0     13982.5     13802.4     13519.3     13144.6     12689.5     12165.3     11583.6     10955.8     10293.6      9608.1      8910.1      8209.7      7516.2      6837.7      6181.2      5552.4      4955.7      4394.4      3870.4      3384.8      2937.6      2528.4      2155.8      1818.2      1513.7      1240.0       995.0       776.2       581.5       408.5       255.3       119.7         0.0
+ --- record start cputime:  14      7.7871609
+---getting bk :   64    1    1    1
+=== record14:      0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.002     0.008     0.018     0.031     0.048     0.068     0.091     0.117     0.147     0.179     0.214     0.251     0.290     0.330     0.371     0.414     0.456     0.498     0.540     0.580     0.619     0.657     0.693     0.726     0.758     0.787     0.814     0.839     0.861     0.882     0.900     0.917     0.932     0.946     0.958     0.968     0.978     0.986     0.993     1.000
+ --- record start cputime:  15      7.7878761
+---getting slmsk :  768  768    1    1
+--             src_values:       0.0000000      0.0000000      0.0000000      0.0000000
+--             dst_values:  -999999.0000
+--          remaped value:        0.0000
+ --- record start cputime:  16      7.7978258
+---getting zorl :  768  768    1    1
+--             src_values:       0.0000149      0.0000150      0.0000290      0.0000313
+--             dst_values:  -999999.0000
+--          remaped value:        0.0000
+ --- record start cputime:  17      7.8075800
+---getting f10m :  768  768    1    1
+--             src_values:       0.9900748      0.9903802      0.9890920      0.9891657
+--             dst_values:  -999999.0000
+--          remaped value:        0.9891
+  === finished hafsvi_preproc ===
+ === finished hafsvi_preproc vi_inp_45deg0p20.bin ===
+
+real	0m8.139s
+user	0m5.486s
+sys	0m2.409s
++ [[ '' -gt 1 ]]
++ work_dir=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/split_init
++ mkdir -p /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/split_init
++ cd /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/split_init
++ ln -sf /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/tcvitals.vi fort.11
++ '[' -e /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/atm_init/07l.2022092000.hafs.trak.atcfunix.all ']'
++ ln -sf /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/intercom/atm_init/07l.2022092000.hafs.trak.atcfunix.all ./trak.atcfunix.all
++ grep '^.., 07,' trak.atcfunix.all
++ ln -sf trak.atcfunix.tmp fort.12
++ ln -sf ./trak.fnl.all fort.30
++ ln -sf /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec//hafs_vi_create_trak_init.x ./
++ ./hafs_vi_create_trak_init.x 07L
+72HDAS220920 0  203  701  203  701  203  701  203  701  203  701  203  701  203  701   0   0   0   0   0   0 07L
+
+real	0m0.021s
+user	0m0.002s
+sys	0m0.005s
++ ln -sf /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/2022092000/07L/atm_vi/tcvitals.vi fort.11
++ ln -sf ./trak.fnl.all fort.30
++ ln -sf ../prep_init/vi_inp_30deg0p02.bin ./fort.26
++ ln -sf ../prep_init/vi_inp_45deg0p20.bin ./fort.46
++ '[' -s ../split_guess/storm_radius ']'
++ ln -sf storm_env fort.56
++ ln -sf rel_inform fort.52
++ ln -sf vital_syn fort.55
++ ln -sf storm_pert fort.71
++ ln -sf storm_radius fort.85
++ ln -sf /mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec//hafs_vi_split.x ./
++ gesfhr=6
++ '[' -s fort.65 ']'
++ ibgs=2
++ iflag_cold=1
++ echo 6 2 49 1 1.0
++ ./hafs_vi_split.x
+Have 1 OpenMP threads.
+ NX,NY,NZ,I360=        1501        1501          63         180
+ CENTRAL_LON,CENTRAL_LAT=  -70.10000       20.30000    
+ K,T1,Q1,U1,V1,Z1,P1=
+  1      298.61        0.02        2.60        7.68        0.00   101132.93
+  2      298.11        0.02        2.76        8.14       47.31   100592.34
+  3      297.57        0.02        2.81        8.21      101.06    99980.62
+  4      296.96        0.02        2.84        8.20      162.25    99287.53
+  5      296.27        0.02        2.88        8.16      231.62    98505.92
+  6      295.49        0.02        2.91        8.08      310.41    97623.75
+  7      294.62        0.02        2.97        7.92      399.60    96632.11
+  8      293.73        0.02        3.14        7.64      500.40    95520.14
+  9      292.91        0.02        3.40        7.10      614.24    94275.98
+ 10      292.30        0.02        3.70        6.45      742.47    92889.79
+ 11      291.84        0.01        4.10        5.45      886.95    91348.56
+ 12      291.25        0.01        4.54        4.26     1049.26    89644.16
+ 13      290.68        0.01        4.94        2.90     1231.29    87766.11
+ 14      289.85        0.01        5.23        1.72     1434.89    85707.50
+ 15      288.74        0.01        5.32        0.88     1661.83    83462.90
+ 16      287.52        0.01        5.10        0.67     1913.83    81029.16
+ 17      286.13        0.01        4.44        1.09     2192.65    78407.26
+ 18      284.70        0.01        3.12        1.78     2499.84    75602.27
+ 19      282.92        0.01        1.10        2.04     2837.06    72622.11
+ 20      280.79        0.01       -0.69        1.46     3205.47    69479.52
+ 21      278.27        0.01       -1.34        0.61     3605.59    66194.11
+ 22      275.97        0.01       -0.83        0.91     4037.70    62788.18
+ 23      272.71        0.00       -0.85        3.37     4502.72    59286.88
+ 24      269.09        0.00       -1.72        8.09     4999.28    55720.42
+ 25      266.17        0.00       -1.21        6.35     5526.30    52121.97
+ 26      264.12        0.00       -3.16       -1.36     6084.96    48523.08
+ 27      260.79        0.00       -4.91       -4.57     6676.23    44957.02
+ 28      257.11        0.00       -6.62       -6.50     7295.61    41458.06
+ 29      252.74        0.00       -6.38       -7.59     7941.14    38053.26
+ 30      247.89        0.00       -7.77       -7.95     8608.71    34771.61
+ 31      242.64        0.00      -10.04       -6.72     9294.83    31635.13
+ 32      237.04        0.00      -12.47       -5.49     9996.36    28659.90
+ 33      231.09        0.00      -14.84       -6.60    10709.03    25861.95
+ 34      224.67        0.00      -14.82       -7.81    11429.64    23247.91
+ 35      218.02        0.00      -14.61       -9.13    12153.62    20823.91
+ 36      211.00        0.00      -13.80       -8.97    12877.58    18590.14
+ 37      206.00        0.00      -19.57        0.14    13597.74    16544.32
+ 38      205.29        0.00       -4.06        1.55    14319.25    14680.05
+ 39      201.51        0.00        7.08       -8.47    15053.07    12991.50
+ 40      197.53        0.00       -0.99        0.77    15789.20    11467.60
+ 41      193.72        0.00       -6.90        2.57    16523.50    10100.21
+ 42      194.32        0.00      -15.42       -2.49    17256.43     8875.64
+ 43      199.49        0.00      -18.82       -2.08    18005.29     7780.85
+ 44      209.45        0.00       -1.76        7.17    18789.53     6804.87
+ 45      210.30        0.00       10.23        3.05    19624.24     5937.05
+ 46      209.65        0.00       10.81        1.22    20479.02     5167.15
+ 47      211.87        0.00       11.95        0.45    21347.84     4485.49
+ 48      212.87        0.00       14.71        0.36    22242.03     3883.05
+ 49      214.78        0.00       10.44       -0.54    23159.27     3351.46
+ 50      219.86        0.00        6.13       -0.30    24107.32     2883.04
+ 51      225.29        0.00       10.16        2.50    25100.72     2470.79
+ 52      225.79        0.00       19.82        2.88    26144.76     2108.37
+ 53      224.22        0.00       21.29       -2.25    27226.21     1790.05
+ 54      224.14        0.00       10.71       -2.35    28339.96     1510.71
+ 55      225.68        0.00        4.87        5.46    29501.49     1265.75
+ 56      228.03        0.00        4.76        9.19    30729.66     1051.08
+ 57      231.24        0.00       -4.43        5.98    32045.65      863.06
+ 58      234.89        0.00      -16.07        1.98    33477.74      698.46
+ 59      243.09        0.00      -35.05        3.08    35065.87      554.42
+ 60      246.18        0.00      -29.44        3.01    36898.91      428.43
+ 61      249.81        0.00      -17.14       -5.74    39042.20      318.27
+ 62      260.08        0.00      -10.76        7.65    41677.05      221.96
+ 63      264.37        0.00       -7.62        4.41    45306.64      137.79
+ 
+ PT,PDTOP=  0.000000000000000E+000  0.000000000000000E+000
+ K,ETA1,ETA2=           1   64.24700      0.0000000E+00
+ K,ETA1,ETA2=           2   137.7900      0.0000000E+00
+ K,ETA1,ETA2=           3   221.9580      0.0000000E+00
+ K,ETA1,ETA2=           4   318.2660      0.0000000E+00
+ K,ETA1,ETA2=           5   428.4340      0.0000000E+00
+ K,ETA1,ETA2=           6   554.4240      0.0000000E+00
+ K,ETA1,ETA2=           7   698.4570      0.0000000E+00
+ K,ETA1,ETA2=           8   863.0580      0.0000000E+00
+ K,ETA1,ETA2=           9   1051.080      0.0000000E+00
+ K,ETA1,ETA2=          10   1265.752      0.0000000E+00
+ K,ETA1,ETA2=          11   1510.711      0.0000000E+00
+ K,ETA1,ETA2=          12   1790.051      0.0000000E+00
+ K,ETA1,ETA2=          13   2108.366      0.0000000E+00
+ K,ETA1,ETA2=          14   2470.788      0.0000000E+00
+ K,ETA1,ETA2=          15   2883.038      0.0000000E+00
+ K,ETA1,ETA2=          16   3351.460      0.0000000E+00
+ K,ETA1,ETA2=          17   3883.052      0.0000000E+00
+ K,ETA1,ETA2=          18   4485.493      0.0000000E+00
+ K,ETA1,ETA2=          19   5167.146      0.0000000E+00
+ K,ETA1,ETA2=          20   5937.050      0.0000000E+00
+ K,ETA1,ETA2=          21   6804.874      0.0000000E+00
+ K,ETA1,ETA2=          22   7780.847      0.0000000E+00
+ K,ETA1,ETA2=          23   8875.644      0.0000000E+00
+ K,ETA1,ETA2=          24   10100.21      0.0000000E+00
+ K,ETA1,ETA2=          25   11264.36      2.0099999E-03
+ K,ETA1,ETA2=          26   12190.64      7.9199998E-03
+ K,ETA1,ETA2=          27   12905.43      1.7550001E-02
+ K,ETA1,ETA2=          28   13430.88      3.0789999E-02
+ K,ETA1,ETA2=          29   13785.89      4.7510002E-02
+ K,ETA1,ETA2=          30   13986.78      6.7610003E-02
+ K,ETA1,ETA2=          31   14047.96      9.0970002E-02
+ K,ETA1,ETA2=          32   13982.47      0.1174600    
+ K,ETA1,ETA2=          33   13802.40      0.1469000    
+ K,ETA1,ETA2=          34   13519.34      0.1791100    
+ K,ETA1,ETA2=          35   13144.59      0.2138200    
+ K,ETA1,ETA2=          36   12689.46      0.2507600    
+ K,ETA1,ETA2=          37   12165.29      0.2896000    
+ K,ETA1,ETA2=          38   11583.57      0.3299400    
+ K,ETA1,ETA2=          39   10955.85      0.3714000    
+ K,ETA1,ETA2=          40   10293.60      0.4135300    
+ K,ETA1,ETA2=          41   9608.083      0.4558900    
+ K,ETA1,ETA2=          42   8910.077      0.4980600    
+ K,ETA1,ETA2=          43   8209.701      0.5396100    
+ K,ETA1,ETA2=          44   7516.186      0.5801500    
+ K,ETA1,ETA2=          45   6837.692      0.6193500    
+ K,ETA1,ETA2=          46   6181.195      0.6569200    
+ K,ETA1,ETA2=          47   5552.396      0.6926100    
+ K,ETA1,ETA2=          48   4955.727      0.7262500    
+ K,ETA1,ETA2=          49   4394.376      0.7577300    
+ K,ETA1,ETA2=          50   3870.387      0.7869800    
+ K,ETA1,ETA2=          51   3384.766      0.8139800    
+ K,ETA1,ETA2=          52   2937.635      0.8387600    
+ K,ETA1,ETA2=          53   2528.377      0.8613800    
+ K,ETA1,ETA2=          54   2155.784      0.8819200    
+ K,ETA1,ETA2=          55   1818.207      0.9005000    
+ K,ETA1,ETA2=          56   1513.682      0.9172200    
+ K,ETA1,ETA2=          57   1240.036      0.9322300    
+ K,ETA1,ETA2=          58   994.9915      0.9456500    
+ K,ETA1,ETA2=          59   776.2359      0.9576200    
+ K,ETA1,ETA2=          60   581.4880      0.9682700    
+ K,ETA1,ETA2=          61   408.5340      0.9777100    
+ K,ETA1,ETA2=          62   255.2652      0.9860800    
+ K,ETA1,ETA2=          63   119.7024      0.9934700    
+ K,ETA1,ETA2=          64  0.0000000E+00   1.000000    
+ CLON,CLAT=  -70.10000       20.30000    
+ IPX,JPX,PSFX=        1023        1501   101899.671875000     

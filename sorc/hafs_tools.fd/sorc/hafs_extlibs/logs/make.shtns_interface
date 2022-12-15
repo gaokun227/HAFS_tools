@@ -1,0 +1,7 @@
+make[1]: Entering directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/shtns_interface'
+ifort -O3 -mcmodel=large -convert big_endian -g -mcmodel=large -c shtns.F90
+/usr/bin/ar rv libshtns_interface.a  shtns.o
+/usr/bin/ar: creating libshtns_interface.a
+a - shtns.o
+/usr/bin/ranlib libshtns_interface.a
+make[1]: Leaving directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/shtns_interface'
