@@ -1,6 +1,6 @@
 #! /bin/sh
 #SBATCH --job-name=hafs_atm_vi_test
-#SBATCH --output=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/hafs_tools/scripts/stdout/%x.o%j
+#SBATCH --output=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/scripts/stdout/%x.o%j
 #SBATCH --account=hfip-gfdl
 ##SBATCH --qos=batch
 #SBATCH --qos=urgent
@@ -23,7 +23,7 @@ export CDATE=2022092000
 export STORMID=07L
 
 # what exhafs_atm_vi needs
-export version=hafs_tools 
+export version=HAFS_tools 
 export HOMEhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/${version}
 export USHhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/${version}/ush
 export EXEChafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/${version}/sorc/hafs_tools.fd/exec/
