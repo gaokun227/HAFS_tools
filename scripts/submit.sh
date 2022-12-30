@@ -1,6 +1,6 @@
 #! /bin/sh
 #SBATCH --job-name=hafs_atm_vi_test
-#SBATCH --output=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/scripts/stdout/%x.o%j
+#SBATCH --output=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/hafs_tools/scripts/stdout/%x.o%j
 #SBATCH --account=hfip-gfdl
 ##SBATCH --qos=batch
 #SBATCH --qos=urgent
@@ -23,7 +23,7 @@ export CDATE=2022092000
 export STORMID=07L
 
 # what exhafs_atm_vi needs
-export version=HAFS_tools 
+export version=hafs_tools 
 export HOMEhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/${version}
 export USHhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/${version}/ush
 export EXEChafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/${version}/sorc/hafs_tools.fd/exec/
@@ -34,8 +34,8 @@ export FIXhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/${version}/fix
 export COMhafsprior=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/hafstmp_test/hafsv0p3_bstest_h3db_vida/com/2021092400/18L/../../2021092318/18L
 
 #export WORKhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/hafstmp_test/hafsv0p3_bstest_h3db_vida/${CDATE}/${STORMID}
-export WORKhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test2_tile6/hafsv0p3_bstest_h3db_vida/${CDATE}/${STORMID}
-#export WORKhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_test3_nestx2/hafsv0p3_bstest_h3db_vida/${CDATE}/${STORMID}
+export WORKhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_tile6/hafsv0p3_bstest_h3db_vida/${CDATE}/${STORMID}
+export WORKhafs=/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/tshield_atl_vi/hafsv0p3_bstest_h3db_vida/${CDATE}/${STORMID}
 
 # env
 source ${USHhafs}/hafs_pre_job.sh.inc
@@ -47,4 +47,3 @@ module list
 
 # Execute ex-script
 ${HOMEhafs}/scripts/exhafs_atm_vi.sh
-
