@@ -61,7 +61,8 @@ hrd_multistorm_keygen=functools.cmp_to_key(hrd_multistorm_sorter)
 # List of known tcvitals file locations.  Each is intended to be sent
 # through a datetime.datetime.format to get the final filename.
 vitfiles=[
-    '/lfs4/HFIP/hwrf-data/hwrf-input/SYNDAT-PLUS/syndat_tcvitals.%Y']
+    '/lfs4/HFIP/hwrf-data/hwrf-input/SYNDAT-PLUS/syndat_tcvitals.%Y',
+    '/lustre/f2/dev/Kun.Gao/SYNDAT-PLUS/syndat_tcvitals.%Y']
 
 if 'SYNDAThafs' in os.environ:
     vitfiles=[os.environ['SYNDAThafs']+'/syndat_tcvitals.%Y',]

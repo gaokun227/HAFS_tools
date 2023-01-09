@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -xe
 export vi_warm_start_vmax_threshold=${vi_warm_start_vmax_threshold:-20} # m/s
@@ -29,16 +29,16 @@ TOTAL_TASKS=${TOTAL_TASKS:-24}
 NCTSK=${NCTSK:-24}
 NCNODE=${NCNODE:-1}
 OMP_NUM_THREADS=${OMP_NUM_THREADS:-1}
-APRUNC=${APRUNC:-"aprun -b -j1 -n${TOTAL_TASKS} -N${NCTSK} -d${OMP_NUM_THREADS} -cc depth"}
+APRUNC=${APRUNC:-"srun --ntasks=4"}
+#APRUNC=${APRUNC:-"aprun -b -j1 -n${TOTAL_TASKS} -N${NCTSK} -d${OMP_NUM_THREADS} -cc depth"}
 
 # Utilities
 NDATE=${NDATE:-ndate}
 export NCP=${NCP:-"/bin/cp"}
 export NMV=${NMV:-"/bin/mv"}
 export NLN=${NLN:-"/bin/ln -sf"}
-export MPISERIAL=${MPISERIAL:-${EXEChafs}/hafs_mpiserial.x}
+#export MPISERIAL=${MPISERIAL:-${EXEChafs}/hafs_mpiserial.x}
 export DATOOL=${DATOOL:-${EXEChafs}/hafs_datool.x}
-
 PDY=`echo $CDATE | cut -c1-8`
 cyc=`echo $CDATE | cut -c9-10`
 yr=`echo $CDATE | cut -c1-4`
@@ -92,7 +92,7 @@ if [ $vmax_vit -ge $vi_warm_start_vmax_threshold ] && [ -d ${RESTARTinp} ]; then
   cd ${work_dir}
   vortexradius=${deg_box1}
   res=0.02
-  time ${DATOOL} hafsvi_preproc --in_dir=${RESTARTinp} \
+  ${APRUNC} ${DATOOL} hafsvi_preproc --in_dir=${RESTARTinp} \
                                      --debug_level=11 --interpolation_points=4 \
                                      --infile_date=${CDATE:0:8}.${CDATE:8:2}0000 \
                                      --tcvital=${tcvital} \
@@ -109,7 +109,7 @@ if [ $vmax_vit -ge $vi_warm_start_vmax_threshold ] && [ -d ${RESTARTinp} ]; then
 
   vortexradius=${deg_box1}
   res=0.20
-  time ${DATOOL} hafsvi_preproc --in_dir=${RESTARTinp} \
+  ${APRUNC} ${DATOOL} hafsvi_preproc --in_dir=${RESTARTinp} \
                                      --debug_level=11 --interpolation_points=4 \
                                      --infile_date=${CDATE:0:8}.${CDATE:8:2}0000 \
                                      --tcvital=${tcvital} \
@@ -196,7 +196,7 @@ cd $DATA
   cd ${work_dir}
   vortexradius=${deg_box1}
   res=0.02
-  time ${DATOOL} hafsvi_preproc --in_dir=${RESTARTinit} \
+  ${APRUNC} ${DATOOL} hafsvi_preproc --in_dir=${RESTARTinit} \
                                      --debug_level=11 --interpolation_points=4 \
                                      --infile_date=${CDATE:0:8}.${CDATE:8:2}0000 \
                                      --tcvital=${tcvital} \
@@ -209,7 +209,7 @@ cd $DATA
   fi
   vortexradius=${deg_box2}
   res=0.20
-  time ${DATOOL} hafsvi_preproc --in_dir=${RESTARTinit} \
+  ${APRUNC} ${DATOOL} hafsvi_preproc --in_dir=${RESTARTinit} \
                                      --debug_level=11 --interpolation_points=4 \
                                      --infile_date=${CDATE:0:8}.${CDATE:8:2}0000 \
                                      --tcvital=${tcvital} \
@@ -438,7 +438,7 @@ ${NCP} -rp ${RESTARTdst}/oro_data*.nc ${RESTARTout}/
 for nd in $(seq 1 ${nest_grids})
 do
 
-time ${DATOOL} hafsvi_postproc --in_file=${DATA}/anl_storm/storm_anl \
+${APRUNC} ${DATOOL} hafsvi_postproc --in_file=${DATA}/anl_storm/storm_anl \
                                --debug_level=11 --interpolation_points=4 \
                                --relaxzone=30 \
                                --infile_date=${CDATE:0:8}.${CDATE:8:2}0000 \

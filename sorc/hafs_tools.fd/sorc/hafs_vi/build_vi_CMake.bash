@@ -15,7 +15,9 @@ fi
 mkdir ${BuildDir}
 cd ${BuildDir}
 
-cmake ../hafs_vi  -DCMAKE_Fortran_COMPILER=ifort -DCMAKE_C_COMPILER=icc -DBUILD_TYPE=RELEASE
+#cmake ../hafs_vi  -DCMAKE_Fortran_COMPILER=ifort -DCMAKE_C_COMPILER=icc -DBUILD_TYPE=RELEASE
+cmake ../hafs_vi
+
 make VERBOSE=3
 make install
 

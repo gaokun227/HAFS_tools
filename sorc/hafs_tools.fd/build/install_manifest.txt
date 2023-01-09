@@ -1,1 +1,0 @@
-/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/exec/mpiserial.x

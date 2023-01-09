@@ -1,9 +1,0 @@
-make[1]: Entering directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/gridprojs'
-ifort -O3 -mcmodel=large -convert big_endian  -c noaa_routines.f
-ifort -O3 -mcmodel=large -convert big_endian  -c gridprojs_interface.F90
-/usr/bin/ar rv libgridprojs.a noaa_routines.o gridprojs_interface.o
-/usr/bin/ar: creating libgridprojs.a
-a - noaa_routines.o
-a - gridprojs_interface.o
-/usr/bin/ranlib libgridprojs.a
-make[1]: Leaving directory `/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/gridprojs'

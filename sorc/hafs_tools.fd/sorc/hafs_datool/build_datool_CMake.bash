@@ -15,7 +15,8 @@ fi
 mkdir ${BuildDir}
 cd ${BuildDir}
 
-cmake ../hafs_datool  -DCMAKE_Fortran_COMPILER=ifort -DCMAKE_C_COMPILER=icc -DBUILD_TYPE=RELEASE
+#cmake ../hafs_datool  -DCMAKE_Fortran_COMPILER=ifort -DCMAKE_C_COMPILER=icc -DBUILD_TYPE=RELEASE
+cmake ../hafs_datool
 make VERBOSE=3
 make install
 
