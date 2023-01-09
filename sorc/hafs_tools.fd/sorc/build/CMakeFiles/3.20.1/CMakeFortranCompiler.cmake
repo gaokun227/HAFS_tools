@@ -1,8 +1,8 @@
-set(CMAKE_Fortran_COMPILER "/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/bin/intel64/ifort")
+set(CMAKE_Fortran_COMPILER "/opt/cray/pe/craype/2.6.3/bin/ftn")
 set(CMAKE_Fortran_COMPILER_ARG1 "")
 set(CMAKE_Fortran_COMPILER_ID "Intel")
-set(CMAKE_Fortran_COMPILER_VERSION "18.0.5.20180823")
-set(CMAKE_Fortran_COMPILER_WRAPPER "")
+set(CMAKE_Fortran_COMPILER_VERSION "19.0.5.20190815")
+set(CMAKE_Fortran_COMPILER_WRAPPER "CrayPrgEnv")
 set(CMAKE_Fortran_PLATFORM_ID "Linux")
 set(CMAKE_Fortran_SIMULATE_ID "")
 set(CMAKE_Fortran_SIMULATE_VERSION "")
@@ -10,9 +10,9 @@ set(CMAKE_Fortran_SIMULATE_VERSION "")
 
 
 
-set(CMAKE_AR "/bin/ar")
+set(CMAKE_AR "/usr/bin/ar")
 set(CMAKE_Fortran_COMPILER_AR "")
-set(CMAKE_RANLIB "/bin/ranlib")
+set(CMAKE_RANLIB "/usr/bin/ranlib")
 set(CMAKE_Fortran_COMPILER_RANLIB "")
 set(CMAKE_COMPILER_IS_GNUG77 )
 set(CMAKE_Fortran_COMPILER_LOADED 1)
@@ -63,7 +63,7 @@ endif()
 
 
 
-set(CMAKE_Fortran_IMPLICIT_INCLUDE_DIRECTORIES "/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/impi-2018.4.274/netcdf/4.7.4/include;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/impi-2018.4.274/hdf5/1.10.6/include;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/szip/2.1.1/include;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/impi-2018.4.274/esmf/8.2.1b04/include;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/impi-2018.4.274/pio/2.5.2/include;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/png/1.6.35/include;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/zlib/1.2.11/include;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/jasper/2.0.22/include;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/ipp/include;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/mkl/include;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/pstl/include;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/tbb/include;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/daal/include;/misc/apps/intel/compilers_and_libraries_2018.5.274/linux/compiler/include/intel64;/misc/apps/intel/compilers_and_libraries_2018.5.274/linux/compiler/include/icc;/misc/apps/intel/compilers_and_libraries_2018.5.274/linux/compiler/include;/usr/local/include;/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include;/usr/include")
-set(CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES "ifport;ifcoremt;imf;svml;m;ipgo;irc;pthread;svml;c;gcc;gcc_s;irc_s;dl;c")
-set(CMAKE_Fortran_IMPLICIT_LINK_DIRECTORIES "/mnt/lfs1/HFIP/hfip-gfdl/Kun.Gao/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_extlibs/lib;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/impi-2018.4.274/esmf/8.2.1b04/lib;/lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/intel-18.0.5.274/impi-2018.4.274/pio/2.5.2/lib;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/compiler/lib/intel64_lin;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/mkl/lib/intel64_lin;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/tbb/lib/intel64/gcc4.7;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/daal/lib/intel64_lin;/apps/intel/parallel_studio_xe_2018.4.057/compilers_and_libraries_2018/linux/tbb/lib/intel64_lin/gcc4.4;/misc/apps/intel/compilers_and_libraries_2018.5.274/linux/compiler/lib/intel64_lin;/usr/lib/gcc/x86_64-redhat-linux/4.8.5;/usr/lib64;/lib64;/usr/lib;/lib")
+set(CMAKE_Fortran_IMPLICIT_INCLUDE_DIRECTORIES "/opt/cray/pe/libsci/19.06.1/INTEL/16.0/x86_64/include;/opt/cray/pe/mpt/7.7.11/gni/mpich-intel/16.0/include;/opt/cray/rca/2.2.20-7.0.2.1_2.93__g8e3fb5b.ari/include;/opt/cray/alps/6.6.59-7.0.2.1_3.85__g872a8d62.ari/include;/opt/cray/xpmem/2.2.20-7.0.2.1_2.72__g87eb960.ari/include;/opt/cray/gni-headers/5.0.12.0-7.0.2.1_2.34__g3b1768f.ari/include;/opt/cray/pe/pmi/5.0.15/include;/opt/cray/ugni/6.0.14.0-7.0.2.1_3.77__ge78e5b0.ari/include;/opt/cray/udreg/2.3.2-7.0.2.1_2.52__g8175d3d.ari/include;/opt/cray/wlm_detect/1.3.3-7.0.2.1_2.23__g7109084.ari/include;/opt/cray/krca/2.2.7-7.0.2.1_2.81__ge897ee1.ari/include;/opt/cray-hss-devel/9.0.0/include;/opt/intel/compilers_and_libraries_2019.5.281/linux/ipp/include;/opt/intel/compilers_and_libraries_2019.5.281/linux/mkl/include;/opt/intel/compilers_and_libraries_2019.5.281/linux/pstl/include;/opt/intel/compilers_and_libraries_2019.5.281/linux/tbb/include;/opt/intel/compilers_and_libraries_2019.5.281/linux/daal/include;/opt/intel/compilers_and_libraries_2019.5.281/linux/compiler/include/intel64;/opt/intel/compilers_and_libraries_2019.5.281/linux/compiler/include/icc;/opt/intel/compilers_and_libraries_2019.5.281/linux/compiler/include;/usr/local/include;/usr/lib64/gcc/x86_64-suse-linux/7/include;/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed;/usr/include")
+set(CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES "AtpSigHandler;AtpSigHCommData;pthread;darshan;fmpich;mpichcxx;darshan;z;mpichf90_intel;rt;ugni;pthread;pmi;imf;m;dl;sci_intel_mpi;sci_intel;imf;m;dl;mpich_intel;rt;ugni;pthread;pmi;imf;m;dl;pmi;pthread;alpslli;pthread;wlm_detect;alpsutil;pthread;rca;xpmem;ugni;pthread;udreg;sci_intel;imf;m;pthread;dl;hugetlbfs;imf;m;pthread;ifport;ifcore;imf;svml;m;ipgo;irc;svml;c;gcc;irc_s;dl;c")
+set(CMAKE_Fortran_IMPLICIT_LINK_DIRECTORIES "/opt/cray/pe/libsci/19.06.1/INTEL/16.0/x86_64/lib;/opt/cray/dmapp/default/lib64;/opt/cray/pe/mpt/7.7.11/gni/mpich-intel/16.0/lib;/opt/cray/rca/2.2.20-7.0.2.1_2.93__g8e3fb5b.ari/lib64;/opt/cray/alps/6.6.59-7.0.2.1_3.85__g872a8d62.ari/lib64;/opt/cray/xpmem/2.2.20-7.0.2.1_2.72__g87eb960.ari/lib64;/opt/cray/pe/pmi/5.0.15/lib64;/opt/cray/ugni/6.0.14.0-7.0.2.1_3.77__ge78e5b0.ari/lib64;/opt/cray/udreg/2.3.2-7.0.2.1_2.52__g8175d3d.ari/lib64;/sw/gaea-cle7/darshan/3.2.1-1/runtime/lib;/opt/cray/pe/atp/2.1.3/libApp;/opt/cray/wlm_detect/1.3.3-7.0.2.1_2.23__g7109084.ari/lib64;/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/lib;/opt/intel/compilers_and_libraries_2019.5.281/linux/ipp/lib/intel64;/opt/intel/compilers_and_libraries_2019.5.281/linux/compiler/lib/intel64_lin;/opt/intel/compilers_and_libraries_2019.5.281/linux/mkl/lib/intel64_lin;/opt/intel/compilers_and_libraries_2019.5.281/linux/tbb/lib/intel64/gcc4.7;/opt/intel/compilers_and_libraries_2019.5.281/linux/daal/lib/intel64_lin;/sw/gaea-cle7/uasw/ncrc/envs/20200417/opt/linux-sles15-x86_64/gcc-7.5.0/globus-toolkit-6.0.17-klqyvmmhxqsf77ita7vvlw3wgyire7df/lib;/usr/lib64/gcc/x86_64-suse-linux/7;/usr/lib64;/lib64;/usr/x86_64-suse-linux/lib;/lib;/usr/lib")
 set(CMAKE_Fortran_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
