@@ -2047,11 +2047,18 @@
 
      !-----------------------------
      !---4.3 calculate output-grid in input-grid's positions (xin, yin), and each grid's weight to dst
+
+     !write(*,*)'I am before cal_src_dst_grid_weight'
+
      call cal_src_dst_grid_weight(ingrid, dstgrid)
+
+     !write(*,*)'I am after cal_src_dst_grid_weight'
 
      !-------------------------------------------------------------------------
      ! 5 --- process record one-by-one
      do_record_loop: do nrecord = 1, 14
+
+        !write(*,*)' nrecord', nrecord
 
         if ( my_proc_id == io_proc ) open(iunit, file=trim(in_file), form='unformatted')
 
@@ -2268,7 +2275,9 @@
                  ke=min(iz,my_proc_id*nm+nm)
                  if ( ks >= 1 .and. ks <= iz .and. ke >= 1 .and. ke <= iz ) then
                     allocate(dat44(ix+nv-1, iy+2-nv, ke-ks+1, 1))
-                    call mpi_recv(dat44, size(dat43), mpi_real, io_proc, 200*nv+ks, comm, status, ierr)
+                    ! kgao fix
+                    !call mpi_recv(dat44, size(dat43), mpi_real, io_proc, 200*nv+ks, comm, status, ierr)
+                    call mpi_recv(dat44, size(dat44), mpi_real, io_proc, 200*nv+ks, comm, status, ierr)
                  endif
               endif  !if ( my_proc_id == io_proc ) then
 
