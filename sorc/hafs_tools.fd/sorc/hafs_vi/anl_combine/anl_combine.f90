@@ -905,6 +905,7 @@
 
       END IF
 
+      TSTH=.TRUE. ! added by KGao (ensure model R34 is not used) 1/12/2023 
       print*,'new test VRmax,TSTH=',VRmax,TSTH
 
 !     Adjust storm asymmtry ...
