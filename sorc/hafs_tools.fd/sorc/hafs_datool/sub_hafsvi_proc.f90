@@ -2048,11 +2048,7 @@
      !-----------------------------
      !---4.3 calculate output-grid in input-grid's positions (xin, yin), and each grid's weight to dst
 
-     !write(*,*)'I am before cal_src_dst_grid_weight'
-
      call cal_src_dst_grid_weight(ingrid, dstgrid)
-
-     !write(*,*)'I am after cal_src_dst_grid_weight'
 
      !-------------------------------------------------------------------------
      ! 5 --- process record one-by-one
