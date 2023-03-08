@@ -480,7 +480,7 @@
       use posit
       implicit none
       integer,PARAMETER::IR=15,IT=24,IX=25,JX=25
-      integer,PARAMETER::ID=31,JD=31 ! KGao unsure
+      integer,PARAMETER::ID=25,JD=25 
       real,parameter:: DTX=0.2,DTY=0.2    ! Search x-Domain (ID-1)*DTX
       real:: TNMX(ID,JD),UD(IX,JX),VD(IX,JX)
       real:: WTM(IR)
