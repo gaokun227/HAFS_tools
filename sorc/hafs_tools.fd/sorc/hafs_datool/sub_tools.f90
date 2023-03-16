@@ -318,9 +318,12 @@
   if ( debug_level > 10 ) then
      write(*,'(a)')' ---    i     j        lon        lat          x          y m(i,j)_lon m(i,j)_lat '
      write(*,'(a3,2i6)')' t:', i, j
-     write(*,'(a3,2i6, 2f11.2,2i11, 2f11.2)')' t:', i, j, grid_dst%grid_lont(i,j), grid_dst%grid_latt(i,j), x_oini(i,j), y_oini(i,j), &
-        grid_src%grid_lont(x_oini(i,j),y_oini(i,j)), grid_src%grid_latt(x_oini(i,j),y_oini(i,j))
+     ! kgao fix: it is possible that the selected i,j point is out of grid_src
+
+     !write(*,'(a3,2i6, 2f11.2,2i11, 2f11.2)')' t:', i, j, grid_dst%grid_lont(i,j), grid_dst%grid_latt(i,j), x_oini(i,j), y_oini(i,j), &
+     !   grid_src%grid_lont(x_oini(i,j),y_oini(i,j)), grid_src%grid_latt(x_oini(i,j),y_oini(i,j))
   endif
+
   !do j1=1,grid_dst%grid_yt; do i1=1,grid_dst%grid_xt
   !   write(98,'(4i6)')i1,j1,x_oini(i1,j1),y_oini(i1,j1)
   !enddo;enddo
