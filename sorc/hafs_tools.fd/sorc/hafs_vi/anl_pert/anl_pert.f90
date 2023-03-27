@@ -1511,13 +1511,13 @@
 
        REWIND(65)
        READ(65)RMN_HWRF
-       
-       ! KGao change 
+      
+       ! KGao note - strange step; need to check RMN_HWRF value 
        print*, 'RMN_HWRF, PRMAX/deg2km', RMN_HWRF, PRMAX/deg2km
-       !IF(RMN_HWRF.lt.(PRMAX/deg2km))THEN
-       !  if(roc1.gt.roc2)roc2=roc1
-       !  if(rmw1.gt.rmw2)rmw2=rmw1
-       !END IF
+       IF(RMN_HWRF.lt.(PRMAX/deg2km))THEN
+         if(roc1.gt.roc2)roc2=roc1
+         if(rmw1.gt.rmw2)rmw2=rmw1
+       END IF
 
       xxx  = ftmin*rmw1 ; yyy = ftmax*rmw1  !* 50% Constraint
       rmw2 =  max(xxx,min(rmw2,yyy))   !* for bogus stretch
@@ -1679,21 +1679,7 @@
 
 !       save aaa,bbb,rmw1,rmw2,   will be used in size correction.
 
-      
-      ! KGao - test
-      rmw1 = max(Rmax_0/deg2km,0.01)
-      rmw2 = max(VRmax/deg2km,0.01)
-      roc1 = R34modm
-      roc2 = R34obsm 
-      ddd = 1./(roc1*rmw1*(roc1-rmw1))
-      aaa = (rmw2*roc1**2-rmw1**2*roc2)*ddd
-      bbb = 2.*(roc2*rmw1-roc1*rmw2)*ddd
-
-      print*,'KGao test'
-      print*,'rmw1,rmw2,roc1,roc2=',rmw1,rmw2,roc1,roc2
-      print*,'aaa,bbb=',aaa,bbb
-
-      scale1=1.0             ! qingfu test
+      scale1=1.0       ! qingfu test
       beta_ct=1.0      ! qingfu test
 
       print*,'correction factor scale,beta_ct=',scale1,beta_ct

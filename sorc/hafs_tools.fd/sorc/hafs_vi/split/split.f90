@@ -3015,7 +3015,7 @@
         TWM(J) = TM/24.
         print *,'MEAN TANGENTIAL WIND ',J,TWM(J)
         
-        ! KGao
+        ! KGao - kill the program if strange wind value shows up 
         IF ( ABS(TWM(J)) .GT. 1e4) STOP 
 
       enddo
