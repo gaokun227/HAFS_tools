@@ -1280,31 +1280,20 @@
       n_iter=0
       max_iter=10
       ftmin=0.85
-!      ftmax=1.15
       ftmax=1.12
-!      ctmin=0.85
-!      ctmax=1.15
       ctmin=0.85
       ctmax=1.1
       dmin=min(150.,0.8*prmax)/deg2km
       roc_add=max(300.,0.8*prmax)/deg2km
 
-! model RMW & ROCI
-
-!      Rmax_0=RIJ2(i_max,j_max)*1.05
-!      Rmax_0=RIJ2(i_max,j_max)*1.1
       Rmax_0=RIJ2(i_max,j_max)
 
       print*,'vobs,vobs_o,USCT(i_max,j_max)=',vobs,vobs_o,USCT(i_max,j_max)
 
-!      if(USCT(i_max,j_max).gt.v64kt)then
-!        roc1=R34mod
-!        roc2=R34obs
-!      else
-!        roc1=R34modm
-!        roc2=R34obsm
-!      end if
-!      roc1=R34modm*1.25
+!!! Below is cleaned by KGao on 04/13/2023
+
+! ---> step 0: setting initial values for rmw1, rmw2, roc1 roc2
+
       roc1=R34modm
       roc2=R34obsm
 
@@ -1313,15 +1302,8 @@
         roc2=50.
       end if
 
-!*    Observed RMW & ROCI
-!*    ~~~~~~~~~~~~~~~~~~~
-!      rmw2 = vrmax
-!      roc2 = prmax
-
       rmw1 = max(Rmax_0/deg2km,0.01)
-!      rmw2 = (0.3*Rmax_0+0.7*VRmax)/deg2km    !* target RMW  [deg]
       rmw2 = 0.5*(rmw1+VRmax/deg2km)    !* target RMW  [deg]
-!      rmw2 = (0.3*rmw1+0.7*VRmax/deg2km)    !* target RMW  [deg]
 
       rmw_rat=rmw2/rmw1
       rmw2_limit=19./deg2km
@@ -1335,14 +1317,20 @@
 
       roc_max=max(3.3,0.95*prmax/deg2km)
 
-! max corection 15%
+      print*,'=== KGao size check - initial size parameters'
+      print*,'model    rmw1,roc1=',rmw1,roc1
+      print*,'observed rmw2,roc2=',rmw2,roc2
+      print*,'observed actual rmw2=',VRmax/deg2km
+      print*,'ftmin, ftmax, ctmin, ctmax =', ftmin,ftmax,ctmin,ctmax
+
+! ---> step 1 adjustment
+
       ftmin=0.95-(Rmax_0-20.)*0.005
       if(Rmax_0.GE.40.)then
         ftmin=0.85
       else if(Rmax_0.LE.20.)then
         ftmin=0.95
       end if
-!      ftmax=1.1
 
       IF (DEPTH.eq.'S') THEN
         ftmin=1.0-(Rmax_0-20.)*0.005
@@ -1360,11 +1348,6 @@
         end if
       END IF
 
-      print*,'before adjusted storm size'
-      print*,'model    rmw1,roc1=',rmw1,roc1
-      print*,'observed rmw2,roc2=',rmw2,roc2
-
-!      if(roc1.lt.15..or.roc2.lt.15..or.vobs_o.lt.v64kt)then
       if(vobs_o.le.v64kt)then
          ftmin=1.0-(Rmax_0-20.)*0.005
          if(Rmax_0.GE.50.)then
@@ -1372,24 +1355,12 @@
          else if(Rmax_0.LE.30.)then
            ftmin=0.95
          end if
-!        rmw2 = 0.5*(rmw1+VRmax/deg2km)    !* target RMW  [deg]
-!        if(roc2.gt.1.3*roc1)then
-!          roc1=roc_add
-!          roc2=roc_rat*roc1
-!          if(rmw2.lt.0.9*rmw1)rmw2=0.9*rmw1
-!        end if
-!        if(roc1_t.gt.0.5.and.roc2_t.gt.0.5)then
-!        if(rmw_rat.gt.1.0)then
-!          roc2=0.5*(roc_rat+rmw_rat)*roc1
-!        end if
-!        end if
       end if
 
       if(Rmax_0.LT.19..and.VRmax.LT.19.)then
         ftmin=1.0
       end if
       if(ftmin.lt.0.85)ftmin=0.85
-!      ftmax=1.15
       ftmax=1.12
       roc_rat1=max(0.7,min(1.3,roc1/roc2))
       roc1=roc_rat1*roc2
@@ -1400,18 +1371,15 @@
         roc2=roc2+dmax+dmin
         if(roc1_t.gt.0.5.and.roc2_t.gt.0.5)then
           roc1=max(roc1,(0.7*roc_rat1+0.3*roc1/roc2)*roc2)
-!          if(rmw_rat.gt.1.0.and.vobs_o.le.v64kt)then
-!            roc2=0.5*(roc_rat+rmw_rat)*roc1
-!          end if
         else
           roc1=roc1+dmax+roc_add
           roc2=roc2+dmax+roc_add
         end if
       end if
 
-      print*,'dmax,roc_add=',dmax,roc_add
-
-      print*,'adjusted storm size'
+      print*,'=== KGao size check: after step 1 adjustment'
+      print*,'dmin,dmax,roc_add=',dmin,dmax,roc_add
+      print*,'ftmin, ftmax', ftmin, ftmax
       print*,'model    rmw1,roc1=',rmw1,roc1
       print*,'observed rmw2,roc2=',rmw2,roc2
 
@@ -1423,7 +1391,6 @@
       RKX1=0.
       DO n=1,IR1
         RKX1(n)=RADUS(n)*deg2m !* deg -> m
-!        print*,'RKX1(n)=',RKX1(n),U_2S(n,1)
       END DO
 
       k=1
@@ -1466,32 +1433,10 @@
       END DO
 
       SLP_MD=SLP_2S(1,1)*strm3(1,1)/(strm1(1,1)-1.E-20)+SLPE(ictr,jctr)
-!      SLP_MD=SLP_1(ictr,jctr)+SLPE(ictr,jctr)
-
       print*,'SLP_2S(1,1),SLP_1(ictr,jctr)=',SLP_2S(1,1),SLP_1(ictr,jctr)
 
-!      IF((SLP_MD-Psfc_obs).GE.(-100.0))THEN
-!        rmw_min=min(rmw1,rmw2_obs)
-!        if(rmw1.lt.1.0.and.rmw_min.lt.0.8)then
-!          rmw2=rmw2_obs
-!          roc2=roc2_obs
-!          rmw1=rmw_min
-!          roc1=min(roc1,roc2)
-!        end if
-!      ELSE
-!        if(rmw_rat.lt.1.)then
-!          roc1=max(roc2/rmw_rat,roc1)
-!        else
-!          rmw1=max(rmw1,rmw2)
-!          roc1=max(roc1,roc2)
-!        end if
-!        ddd = 1./(roc1*rmw1*(roc1-rmw1))
-!        aaa = (rmw2*roc1**2-rmw1**2*roc2)*ddd
-!        bbb = 2.*(roc2*rmw1-roc1*rmw2)*ddd
-!      END IF
+! ---> step 2 adjustment
 
-!      if(roc1.gt.roc_max)roc1=roc_max
-!      if(roc2.gt.roc_max)roc2=roc_max
       IF(roc1.gt.roc_max.or.roc2.gt.roc_max)THEN
         rocx_rat=roc_max/max(roc1,roc2)
         roc1=rocx_rat*roc1
@@ -1509,35 +1454,43 @@
       rmw2_0=rmw2
       roc2_0=roc2
 
-       REWIND(65)
-       READ(65)RMN_HWRF
-      
-       ! KGao note - strange step; need to check RMN_HWRF value 
-       print*, 'RMN_HWRF, PRMAX/deg2km', RMN_HWRF, PRMAX/deg2km
-       IF(RMN_HWRF.lt.(PRMAX/deg2km))THEN
-         if(roc1.gt.roc2)roc2=roc1
-         if(rmw1.gt.rmw2)rmw2=rmw1
-       END IF
+      print*,'=== KGao size check: after step 2 adjustment'
+      print*,'roc_max, roc_min', roc_max, 2.5
+      print*,'model    rmw1,roc1=',rmw1,roc1
+      print*,'observed rmw2,roc2=',rmw2,roc2
 
+! ---> step 3 adjustment
+
+      ! KGao note - strange step; need to check RMN_HWRF value
+      REWIND(65)
+      READ(65)RMN_HWRF
+      IF(RMN_HWRF.lt.(PRMAX/deg2km))THEN
+        if(roc1.gt.roc2)roc2=roc1
+        if(rmw1.gt.rmw2)rmw2=rmw1
+      END IF
+
+      print*,'=== KGao size check: after step 3 (RMN_HWRF)'
+      print*, 'RMN_HWRF, PRMAX/deg2km', RMN_HWRF, PRMAX/deg2km
+      print*,'model    rmw1,roc1=',rmw1,roc1
+      print*,'observed rmw2,roc2=',rmw2,roc2
+
+! ---> step 4 adjustment
       xxx  = ftmin*rmw1 ; yyy = ftmax*rmw1  !* 50% Constraint
       rmw2 =  max(xxx,min(rmw2,yyy))   !* for bogus stretch
       xxx  = ctmin*roc1 ; yyy = ctmax*roc1  !* 50% Constraint
       roc2 =  max(xxx,min(roc2,yyy))   !* for bogus stretch
 
-!      if(beta.lt.1.)then
-!        if(roc1_t.gt.0.5.and.roc2_t.gt.0.5)then
-!          if(rmw2.gt.rmw1)rmw2=rmw1
-!          if(roc2.gt.roc1)roc2=roc1
-!        end if
-!      end if
-
       ddd = 1./(roc1*rmw1*(roc1-rmw1))
       aaa = (rmw2*roc1**2-rmw1**2*roc2)*ddd
       bbb = 2.*(roc2*rmw1-roc1*rmw2)*ddd
 
+      print*,'=== KGao size check: after step 4 adjustment (ftmin,...)'
       print*,'model    rmw1,roc1=',rmw1,roc1
       print*,'observed rmw2,roc2=',rmw2,roc2
+      print*,'ftmin,ftmax,ctmin,ctmax=',ftmin,ftmax,ctmin,ctmax
       print*,'First Guess: aaa,bbb=',aaa,bbb
+
+! ---> step 5 adjustment
 
       if(bbb.gt.0.1)then
         bbb=0.1
@@ -1549,9 +1502,10 @@
         aaa=(rmw2*roc1**2-rmw1**2*roc2)*ddd
       end if
 
-!      bbb = max(-0.3,min(bbb,0.3))
       aaa = max( 0.85, min(aaa,1.15) )
-
+      print*,'=== KGao size check: after step 5 adjustment'
+      print*,'model    rmw1,roc1=',rmw1,roc1
+      print*,'observed rmw2,roc2=',rmw2,roc2
       print*,'adjusted aaa,bbb=',aaa,bbb
 
       RKX2=0.
@@ -1586,6 +1540,8 @@
       do
       n_iter=n_iter+1
 
+! ---> final adjustment 
+
       xxx  = ftmin*rmw1 ; yyy = ftmax*rmw1  !* 50% Constraint
       rmw2 =  max(xxx,min(rmw2,yyy))   !* for bogus stretch
       xxx  = ctmin*roc1 ; yyy = ctmax*roc1  !* 50% Constraint
@@ -1595,10 +1551,11 @@
       aaa = (rmw2*roc1**2-rmw1**2*roc2)*ddd
       bbb = 2.*(roc2*rmw1-roc1*rmw2)*ddd
 
-      print*,'final adjusted storm size', n_iter
+      print*,'=== KGao size check: after final adjustment'
+      print*,'n_iter',n_iter
       print*,'model    rmw1,roc1=',rmw1,roc1
       print*,'observed rmw2,roc2=',rmw2,roc2
-
+      print*,'ftmin,ftmax,ctmin,ctmax=',ftmin,ftmax,ctmin,ctmax
       print*,'aaa,bbb=',aaa,bbb
 
       bbb = max(-0.1,min(bbb,0.1))
@@ -1631,6 +1588,7 @@
               SLP_2S(1,1),strm2(1,1),strm1(1,1),SLPE(ictr,jctr)
        print*,'SLP_T,Psfc_obs,Psfc_cls,DELT_P=',SLP_T,Psfc_obs,Psfc_cls,DELT_P
 
+       ! KGao note - it_flag is set to 3
        if(diff_p.gt.diff_p_x.and.it_flag.eq.1)then
          ftmax=ftmax+0.005
          rmw1_new=ftmax*rmw1
