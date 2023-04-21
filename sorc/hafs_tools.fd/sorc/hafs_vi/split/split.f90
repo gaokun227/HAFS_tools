@@ -776,7 +776,7 @@
       use rsfc, only: STRPSF,STVMAX,STRPSF_06
 
       implicit none
-      integer,PARAMETER:: IRX=25,JRX=25
+      integer,PARAMETER:: IRX=11,JRX=11
       integer,PARAMETER:: MAXVIT=15
 
       REAL(4) GLAT(IMAX,JMAX),GLON(IMAX,JMAX)
@@ -1200,7 +1200,7 @@
        integer(4) MTV4,MTV6,IBGS,IVOBS
        integer    iflag_cold,I360
        integer    IST,IED,JST,JED,KS850
-       integer, parameter:: IRX=25,JRX=25,gd_dim3=450
+       integer, parameter:: IRX=11,JRX=11,gd_dim3=450
 
        integer(4) iswin,iewin,jswin,jewin,lmeta
        real(4) twindow(iswin:iewin,jswin:jewin,lmeta)
@@ -1861,7 +1861,8 @@
       integer M3,NCHT,IGU,JGU,IREM,MTV4,MTV6,JMAX,IMAX
       integer KDIV2,KQ2
 
-      integer, PARAMETER:: IX=25,JX=25,NF=11,IT=24,IR=120,IJ=IX*JX
+      ! KGao - change IR from 120 (12 deg) to 50 (5 deg)
+      integer, PARAMETER:: IX=11,JX=11,NF=11,IT=24,IR=50,IJ=IX*JX
       integer, PARAMETER:: NSG5=NSG/5
 
       REAL(4) SDAT(IX,JX,MTV6),HDATN(IMAX,JMAX,MTV4),SL(KMAX)
@@ -2928,7 +2929,8 @@
       use posit
       use vect
       implicit none
-      integer,PARAMETER:: IX=25,JX=25,NF=11,IT=24,IR=120
+      ! KGao change IR=120 to 50
+      integer,PARAMETER:: IX=11,JX=11,NF=11,IT=24,IR=50
       real UD,VD,TW
       DIMENSION UD(IX,JX),VD(IX,JX),TW(IT,IR)
 
@@ -2992,7 +2994,7 @@
       SUBROUTINE STRT_PT(RMX,TW,RFAVG)
       implicit none
 
-      integer, PARAMETER :: IX=25,JX=25,NF=11,IT=24,IR=120
+      integer, PARAMETER :: IX=11,JX=11,NF=11,IT=24,IR=50
       integer I, J, K, ICK, ICL, LL, MR, IRA, IRB, IK, KK, JJ
 
       real TM, TMX, JXX, RF, RFAVG, RA, RB, DXX, DV, DVDR, RM, CNT
@@ -3118,7 +3120,7 @@
       use vect
       use rsfc
       implicit none
-      integer, PARAMETER:: IX=25,JX=25,IT=24,IR=120
+      integer, PARAMETER:: IX=11,JX=11,IT=24,IR=50
 !      integer, PARAMETER:: NST=10
       integer I, ICK,  K, IK, IS, KST, IBGS, IVOBS, iflag_cold
 

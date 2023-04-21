@@ -15,7 +15,7 @@
       implicit none
       INTEGER I,J,K,NX,NY,NZ
 !
-      integer,parameter:: IRX=25,JRX=25,MAXNGRID=10000
+      integer,parameter:: IRX=11,JRX=11,MAXNGRID=10000
       real, parameter:: GAMMA=6.5E-3,G=9.8,GI=1./G,D608=0.608
 !
 ! variable for outer nest
