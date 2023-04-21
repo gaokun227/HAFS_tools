@@ -3169,7 +3169,7 @@
         ENDDO
 
 !c      print *,'3rd Catagory ',I
-        RF(I) = 10.
+        RF(I) = 5. ! 10. KGao reduce default value of 10deg to 5deg
       enddo iloop
 
 !c      RMAX=0.
@@ -3295,6 +3295,10 @@
 
       DO I=1,IT
         print *,'R0,Rf AT EACH DIRECTION ',I,R0(I),RF(I)
+        ! KGao
+        R0(I)=min(R0(I),5.)
+        RF(I)=min(RF(I),5.)
+        print *,'limited R0,Rf AT EACH DIRECTION ',I,R0(I),RF(I)
       ENDDO
 
       RETURN
