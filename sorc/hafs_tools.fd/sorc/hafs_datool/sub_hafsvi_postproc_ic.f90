@@ -94,7 +94,7 @@
   !---2.1 get input grid info from binary file
   iunit=36
   open(iunit, file=trim(in_file), form='unformatted')
-  read(iunit) nx, ny, nz, i360
+  read(iunit) nx, ny, nz!, i360
   write(*,'(a,4i5)')'===w40 nx, ny, nz, i360 = ',nx, ny, nz, i360
   read(iunit) lon1,lat1,lon2,lat2,cen_lon,cen_lat
   write(*,'(a,6f10.3)')'lon1,lat1,lon2,lat2,cen_lon,cen_lat =', lon1,lat1,lon2,lat2,cen_lon,cen_lat
@@ -543,8 +543,8 @@
            !---output
            if ( my_proc_id == io_proc ) then
               ! KGao
-              call update_hafs_restart(trim(ncfile_uv), 'u', ix, iy, iz, 1, u1)
-              call update_hafs_restart(trim(ncfile_uv), 'v', ix, iy, iz, 1, v1)
+              call update_hafs_restart(trim(ncfile_uv), 'u', ix, iy, iz, -1, u1)
+              call update_hafs_restart(trim(ncfile_uv), 'v', ix, iy, iz, -1, v1)
               deallocate(u1, v1)
            endif
         elseif ( nrecord == 4 .or. nrecord == 5 .or. nrecord == 8 .or. &
@@ -635,13 +635,15 @@
 
            !---output
            if ( my_proc_id == io_proc ) then
+
+              ! KGao: tx = -1
               !---update restartr
-              if ( nrecord == 4 ) call update_hafs_restart(trim(ncfile_core), 't', ix, iy, iz, 1, dat41)
-              if ( nrecord == 5 ) call update_hafs_restart(trim(ncfile_tracer), 'sphum', ix, iy, iz, 1, dat41)
+              if ( nrecord == 4 ) call update_hafs_restart(trim(ncfile_core), 't', ix, iy, iz, -1, dat41)
+              if ( nrecord == 5 ) call update_hafs_restart(trim(ncfile_tracer), 'sphum', ix, iy, iz, -1, dat41)
               ! KGao - do not update w and DZ
               !if ( nrecord == 8 ) call update_hafs_restart(trim(ncfile_core), 'w', ix, iy, iz, 1, dat41)
               !if ( nrecord == 9 ) call update_hafs_restart(trim(ncfile_core), 'DZ', ix, iy, iz, 1, dat41)
-              if ( nrecord ==11 ) call update_hafs_restart(trim(ncfile_core), 'delp', ix, iy, iz, 1, dat41)
+              if ( nrecord ==11 ) call update_hafs_restart(trim(ncfile_core), 'delp', ix, iy, iz, -1, dat41)
               deallocate(dat41)
 
               !---2d phis
