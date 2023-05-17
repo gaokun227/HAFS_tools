@@ -49,7 +49,7 @@
 
   character (len=2500)   :: indir, infile
   character (len=2500)   :: infile_fvcore, infile_core, infile_uv, infile_tracer, infile_phy, &
-                            infile_sfc, infile_grid, infile_grid2, infile_vertial, infile_oro
+                            infile_sfc, infile_grid, infile_grid2, infile_vertical, infile_oro
   type(grid2d_info)      :: dstgrid  ! rot-ll grid for output
   type(grid2d_info)      :: ingrid   ! hafs restart grid
   real     :: radiusf
@@ -180,7 +180,7 @@
      !-------------------------------------------------------------------------
      ! 4 --- input grid info
      !       read from grid file grid_spec.nc:
-     !       nestfl, tilefl: infile_core, infile_tracer, infile_grid, infile_vertial, infile_oro
+     !       nestfl, tilefl: infile_core, infile_tracer, infile_grid, infile_vertical, infile_oro
      write(nestfl,'(a4,i2.2)')'nest',nd
      write(tilefl,'(a4,i0)')'tile',nd
 

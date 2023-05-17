@@ -1,11 +1,13 @@
 #!/bin/bash
-set -xeu
+
+#set -xeu
+set -x # by Kai for C5
 
 HOMEhafs="../../../../"
 source ${HOMEhafs}/sorc/machine-setup.sh > /dev/null 2>&1
 
 module use ${HOMEhafs}/modulefiles
-module load modulefile.hafs.${target}
+module load modulefile.hafs.${target}_c5
 module list
 
 BuildDir=${HOMEhafs}/sorc/hafs_tools.fd/sorc/build
