@@ -77,6 +77,4 @@
 
   endif
   return
-  end subroutine hafsvi_preproc_ic
-
-
+  end subroutine hafsvi_update_uv_on_cgrid

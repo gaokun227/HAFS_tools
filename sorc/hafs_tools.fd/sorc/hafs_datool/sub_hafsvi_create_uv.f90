@@ -41,4 +41,4 @@
 
   endif
   return
-  end subroutine hafsvi_preproc_ic
+  end subroutine hafsvi_create_uv_on_agrid

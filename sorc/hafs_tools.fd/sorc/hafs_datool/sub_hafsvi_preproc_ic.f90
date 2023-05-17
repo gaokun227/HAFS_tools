@@ -286,7 +286,7 @@
               !deallocate(dat4)
 
               ! KGao - get model top
-              ptop = 200*100 ! 200mb 
+              ptop = 0*100 !  
            endif
 
            if ( my_proc_id == io_proc ) then
@@ -800,8 +800,8 @@
                  !---destage: C-/D- grid to A-grid
                  !u(:,:,k,1) = (dat2 (:,1:iy)+dat2 (:,2:iy+1))/2.0
                  !v(:,:,k,1) = (dat21(1:ix,:)+dat21(2:ix+1,:))/2.0
-                 u(:,:,k,1) = dat2 (:,:)
-                 v(:,:,k,1) = dat21(:,:)
+                 u(:,:,k,1) = dat42 (:,:,k,1)
+                 v(:,:,k,1) = dat43 (:,:,k,1)
               enddo
               deallocate(dat42, dat43, dat2, dat21, cangu, sangu, cangv, sangv)
            endif

@@ -636,8 +636,8 @@
            !---output
            if ( my_proc_id == io_proc ) then
 
-              ! KGao: tx = -1
-              !---update restartr
+              ! KGao: tx -> -1
+              !---update restart
               if ( nrecord == 4 ) call update_hafs_restart(trim(ncfile_core), 't', ix, iy, iz, -1, dat41)
               if ( nrecord == 5 ) call update_hafs_restart(trim(ncfile_tracer), 'sphum', ix, iy, iz, -1, dat41)
               ! KGao - do not update w and DZ
