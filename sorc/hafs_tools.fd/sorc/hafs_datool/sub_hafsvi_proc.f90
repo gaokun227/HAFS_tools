@@ -2102,7 +2102,7 @@
                  allocate(dat3(nx,ny,iz), dat4(nx,ny,iz,1))
                  read(iunit) dat3
                  do k = 1, nz
-                    dat4(:,:,nz-k+1,1)=dat3(:,:,k)
+                    dat4(:,:,nz-k+1,1)=dat3(:,:,k) ! KGao: adjusted earth u/v on a-grid (dat42/dat43 below)
                  enddo
                  deallocate(dat3)
 
@@ -2120,7 +2120,7 @@
                           else
                              if ( nv == 1 ) then
                                 allocate(dat42(nx, ny, ke-ks+1,1))
-                                dat42=dat41
+                                dat42=dat41 
                              else if ( nv == 2 ) then
                                 allocate(dat43(nx, ny, ke-ks+1,1))
                                 dat43=dat41
@@ -2295,19 +2295,36 @@
            allocate(dat4 (ix, iy+1, ke-ks+1, 1), dat41(ix+1, iy, ke-ks+1, 1))
            !$omp parallel do &
            !$omp& private(k)
+
+           ! KGao
+           ! u, v        - old fv3 wind on d-grid
+           ! dat4, dat41 - old earth wind on d-grid
            do k = 1, ke-ks+1
               call fv3uv2earth(ix, iy, u(:,:,k,1), v(:,:,k,1), cangu, sangu, cangv, sangv, dat4(:,:,k,1), dat41(:,:,k,1))
            enddo
            deallocate(u,v)
 
            !---merge
+
+           ! KGao
+           ! dat42, dat43 - adjusted earth wind on a-grid
+           ! dat4,  dat41 - old      earth wind on d-grid
+           ! u1,    v1    - adjusted earth wind on d-grid (target field) 
            allocate(u1(ix, iy+1, ke-ks+1, 1), v1(ix+1, iy, ke-ks+1, 1))
            u1=0.; v1=0.
+          
+           ! subroutine combine_grids_for_remap(ixi, jxi, kxi, txi, fdat_src, ixo, jxo, kxo, txo, fdat_dst, gw, fdat_out)
+           ! fdat_src - adjust field (produced by VI) 
+           ! fdat_dst - ori    field 
+           ! fdat_out - target field (to be used for updating target file) 
            call combine_grids_for_remap(nx,ny,ke-ks+1,1,dat42,ix,iy+1,ke-ks+1,1,dat4,gwt%gwt_u,u1)
            call combine_grids_for_remap(nx,ny,ke-ks+1,1,dat43,ix+1,iy,ke-ks+1,1,dat41,gwt%gwt_v,v1)
            deallocate(dat42, dat43, dat4, dat41)
 
            !---convert earth wind to fv3grid wind
+
+           ! KGao
+           ! u,v - adjusted fv3 wind on d-grid
            allocate(u(ix, iy+1, ke-ks+1, 1), v(ix+1, iy, ke-ks+1, 1))
            u=-999999.; v=-99999999.;
            !$omp parallel do &
@@ -2318,6 +2335,10 @@
            deallocate(u1,v1,cangu, sangu, cangv, sangv)
 
            !---send and collect
+
+           ! KGao
+           ! u,v will be renamed as u1, v1 for updating src files
+           ! call update_hafs_restart(trim(ncfile_core), 'u', ix, iy+1, iz, 1, u1)
            if ( nprocs == 1 ) then
               allocate(u1(ix, iy+1, iz, 1), v1(ix+1, iy, iz, 1))
               u1=u
