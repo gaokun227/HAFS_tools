@@ -483,8 +483,10 @@
            
            deallocate(dat42, dat43, dat4, dat41)
 
+           ! KGao
+
            !---convert earth wind to fv3grid wind
-           !allocate(u(ix, iy+1, ke-ks+1, 1), v(ix+1, iy, ke-ks+1, 1))
+           allocate(u(ix, iy+1, ke-ks+1, 1), v(ix+1, iy, ke-ks+1, 1)) ! not used; D-grid wind
            !u=-999999.; v=-99999999.;
            !$omp parallel do &
            !$omp& private(k)
@@ -492,16 +494,15 @@
            !   call earthuv2fv3(ix, iy, u1(:,:,k,1), v1(:,:,k,1), cangu, sangu, cangv, sangv, u(:,:,k,1), v(:,:,k,1))
            !enddo
            !deallocate(u1,v1,cangu, sangu, cangv, sangv)
-           deallocate(u1,v1)
 
            !---send and collect
            if ( nprocs == 1 ) then
 
               ! KGao
               !allocate(u1(ix, iy+1, iz, 1), v1(ix+1, iy, iz, 1))
-              allocate(u1(ix, iy, iz, 1), v1(ix, iy, iz, 1))
-              u1=u
-              v1=v
+              !allocate(u1(ix, iy, iz, 1), v1(ix, iy, iz, 1))
+              !u1=u
+              !v1=v
               deallocate(u,v)
            else
               nm=max(1,int((iz+nprocs-1)/nprocs))
@@ -512,10 +513,10 @@
               else
                  ! KGao
                  !allocate(u1(ix, iy+1, iz, 1), v1(ix+1, iy, iz, 1))
-                 allocate(u1(ix, iy, iz, 1), v1(ix, iy, iz, 1))
+                 !allocate(u1(ix, iy, iz, 1), v1(ix, iy, iz, 1))
 
                  do k = 0, nprocs-1
-                    ks=k*nm+1              !k-start
+                    ks=k*nm+1             !k-start
                     ke=k*nm+nm            !k-end
                     if ( ke > iz ) ke=iz
                     if ( ks >= 1 .and. ks <= iz .and. ke >= 1 .and. ke <= iz ) then

@@ -185,7 +185,6 @@
      write(tilefl,'(a4,i0)')'tile',nd
 
      ! KGao - name changes
-     !if ( nd == 0 ) then
      infile_grid=trim(indir)//'/grid_spec.nc'
      !infile_oro =trim(indir)//'/oro_data.nc'
      infile_vertical=trim(indir)//'/gfs_vertical.nc' ! ak, bk, pfull, phalf
@@ -193,7 +192,6 @@
      infile_tracer=trim(indir)//'/gfs_data.nc'
      infile_sfc =trim(indir)//'/sfc_data.nc'
      infile_uv=trim(indir)//'/gfs_uv_agrid.nc'
-     !endif
 
      ! KGao
      !inquire(file=infile_grid2, exist=file_exist)
@@ -230,8 +228,16 @@
      if ( my_proc_id == io_proc ) then
         flid_in=71   !inner domain rot-ll file
         flid_out=72  !current domain rot-ll file
-        if ( nd == 0 ) then
+        if ( nd == 1 ) then
            open(unit=flid_out,file=trim(out_file),form='unformatted',status='unknown')
+        else
+           open(unit=flid_out,file=trim(out_file)//'_'//trim(nestfl),form='unformatted',status='unknown')
+        endif
+        if ( nd == 2 ) then   !if ( nd >= 1 .and. nd < ndom .and. ndom > 1 ) then
+           open(unit=flid_in,file=trim(out_file),form='unformatted',status='old')
+        elseif ( nd > 2 ) then   !if ( nd >= 1 .and. nd < ndom .and. ndom > 1 ) then
+           write(tempfl,'(a4,i2.2)')'nest',nd-1
+           open(unit=flid_in,file=trim(out_file)//'_'//trim(tempfl),form='unformatted',status='old')
         endif
      endif
 
@@ -286,7 +292,7 @@
               !deallocate(dat4)
 
               ! KGao - get model top
-              ptop = 0*100 !  
+              ptop = 0*100 ! an additional layer is added over the top layer of GFS 
            endif
 
            if ( my_proc_id == io_proc ) then
@@ -434,6 +440,7 @@
                     allocate(dat4(ix, iy, iz,1))
                     call get_var_data(trim(infile_uv), 'v', ix, iy, iz, 1, dat4)
                  endif
+
                  !---send to other core
                  if ( nprocs > 1 ) then
                     nm=max(1,int((iz+nprocs-1)/nprocs))
@@ -485,6 +492,7 @@
                  endif
                  deallocate(dat4)
               enddo  !do nv = 1, 2
+
            else  !if ( my_proc_id == io_proc ) then
               !---receive dat42 dat43
               nm=max(1,int((iz+nprocs-1)/nprocs))
@@ -782,6 +790,7 @@
               endif  !if ( my_proc_id == io_proc ) then
            endif  ! if ( nprocs == 1 ) then  !--no mpi
         else if ( nrecord == 6 ) then  !---u,v
+
            kz=nz
            !---convert u,v from fv3grid to earth
            nm=max(1,int((kz+nprocs-1)/nprocs))
@@ -789,12 +798,10 @@
            if ( ke > kz ) ke=kz
            if ( ks >= 1 .and. ks <= kz .and. ke >= 1 .and. ke <= kz ) then
               allocate(u(ix,iy,ke-ks+1,1), v(ix,iy,ke-ks+1,1))
-
               ! KGao
               !allocate(dat2(ix, iy+1), dat21(ix+1, iy))
               allocate(dat2(ix, iy), dat21(ix, iy))
               do k = 1, ke-ks+1
-
                  ! KGao 
                  !call fv3uv2earth(ix, iy, dat42(:,:,k,1), dat43(:,:,k,1), cangu, sangu, cangv, sangv, dat2, dat21)
                  !---destage: C-/D- grid to A-grid
@@ -803,7 +810,7 @@
                  u(:,:,k,1) = dat42 (:,:,k,1)
                  v(:,:,k,1) = dat43 (:,:,k,1)
               enddo
-              deallocate(dat42, dat43, dat2, dat21, cangu, sangu, cangv, sangv)
+              deallocate(dat42, dat43, dat2, dat21) !, cangu, sangu, cangv, sangv)
            endif
            !write(*,*)'===w12 dat42,dat43 to earth wind u,v'
 
@@ -836,6 +843,7 @@
                        endif
                     enddo
                     deallocate(dat4)
+
                  else  !if ( my_proc_id == io_proc ) then
                     !---receive dat42 for each core
                     nm=max(1,int((kz+nprocs-1)/nprocs))
@@ -847,7 +855,7 @@
                        call mpi_recv(dat41(1,1,1,1), size(dat41), mpi_real, io_proc, 300*nv+ks, comm, status, ierr)
                     endif
                  endif  !if ( my_proc_id == io_proc ) then
-              else
+              else ! if nd > 1
                  nm=max(1,int((kz+nprocs-1)/nprocs))
                  ks=my_proc_id*nm+1
                  ke=my_proc_id*nm+nm
@@ -872,6 +880,7 @@
                  else if (nv==2) then
                     call combine_grids_for_remap(ix,iy,ke-ks+1,1,v,nx,ny,ke-ks+1,1,dat41,gwt%gwt_t,dat42)
                  endif
+
                  if ( my_proc_id /= io_proc ) then
                     call mpi_send(dat42(1,1,1,1),size(dat42),mpi_real, io_proc, 400*nv+ks, comm, ierr)
                     deallocate(dat42)

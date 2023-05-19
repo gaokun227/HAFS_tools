@@ -216,11 +216,11 @@
      call hafsvi_preproc_ic(trim(in_dir), trim(infile_date), nestdoms, trim(vortexradius), trim(res), trim(out_file))
   endif
 
-  ! KGao
   if ( trim(actions) == "hafsvi_postproc_ic" ) then
-     write(*,'(a)')' --- call hafsvi_postproc_ic/hafs_datool for '//trim(in_grid)
-     call hafsvi_postproc_ic(trim(in_dir), trim(infile_date), nestdoms, trim(vortexradius), trim(res), trim(out_file))
+     write(*,'(a)')' --- call hafsvi_postproc/hafs_datool for '//trim(in_file)
+     call hafsvi_postproc_ic(trim(in_file), trim(infile_date), trim(out_dir), nestdoms)
   endif
+
 !----------------------------------------------------------------
   call parallel_finish()
 
