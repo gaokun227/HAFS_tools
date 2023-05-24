@@ -94,7 +94,7 @@
   !---2.1 get input grid info from binary file
   iunit=36
   open(iunit, file=trim(in_file), form='unformatted')
-  read(iunit) nx, ny, nz!, i360
+  read(iunit) nx, ny, nz, i360
   write(*,'(a,4i5)')'===w40 nx, ny, nz, i360 = ',nx, ny, nz, i360
   read(iunit) lon1,lat1,lon2,lat2,cen_lon,cen_lat
   write(*,'(a,6f10.3)')'lon1,lat1,lon2,lat2,cen_lon,cen_lat =', lon1,lat1,lon2,lat2,cen_lon,cen_lat
@@ -168,7 +168,7 @@
      !if ( nd == 0 ) then
      ncfile_grid=trim(out_dir)//'/grid_spec.nc'
      ncfile_core=trim(out_dir)//'/gfs_data.nc'
-     ncfile_uv=trim(out_dir)//'/gfs_uv_agrid.nc'
+     ncfile_uv=trim(out_dir)//'/gfs_data.nc'
      ncfile_tracer=trim(out_dir)//'/gfs_data.nc'
      !endif
 

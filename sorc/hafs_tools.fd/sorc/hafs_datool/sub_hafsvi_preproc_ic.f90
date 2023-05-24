@@ -187,11 +187,11 @@
      ! KGao - name changes
      infile_grid=trim(indir)//'/grid_spec.nc'
      !infile_oro =trim(indir)//'/oro_data.nc'
-     infile_vertical=trim(indir)//'/gfs_vertical.nc' ! ak, bk, pfull, phalf
+     infile_vertical=trim(indir)//'/gfs_data.nc' ! ak, bk
      infile_core=trim(indir)//'/gfs_data.nc'
      infile_tracer=trim(indir)//'/gfs_data.nc'
-     infile_sfc =trim(indir)//'/sfc_data.nc'
-     infile_uv=trim(indir)//'/gfs_uv_agrid.nc'
+     infile_uv=trim(indir)//'/gfs_data.nc'
+     infile_sfc=trim(indir)//'/sfc_data.nc'
 
      ! KGao
      !inquire(file=infile_grid2, exist=file_exist)
@@ -255,7 +255,10 @@
            ! KGao: get nz dim
            !call get_var_dim(trim(infile_vertial), 'pfull', ndims, dims)
            !nz=dims(1)
-           nz=128
+           !nz=128
+           call get_var_dim(trim(infile_vertical), 'vcoord', ndims, dims)
+           nz=dims(1)-1
+           write(*,*)'nz is', nz
 
            if ( my_proc_id == io_proc ) write(*,'(a,3i6)')'=== record1: ',nx, ny, nz
            if ( my_proc_id == io_proc ) write(flid_out) nx, ny, nz
@@ -292,7 +295,12 @@
               !deallocate(dat4)
 
               ! KGao - get model top
-              ptop = 0*100 ! an additional layer is added over the top layer of GFS 
+              allocate(dat4(iz+1,2,1,1))
+              call get_var_data(trim(infile_vertical), 'vcoord', iz+1, 2, 1, 1, dat4)
+              ptop = dat4(1,1,1,1)
+              write(*,*)'ptop is', ptop
+              deallocate(dat4)
+              !ptop = 0*100 ! an additional layer is added over the top layer of GFS 
            endif
 
            if ( my_proc_id == io_proc ) then
