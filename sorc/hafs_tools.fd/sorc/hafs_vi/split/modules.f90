@@ -77,7 +77,7 @@
 
  module xxx
  implicit none
- integer, parameter :: imx=25, jmx=25
+ integer, parameter :: imx=11, jmx=11
  real,save:: XF(IMX,JMX),XC,YC,DX,DY
  end module xxx
 
