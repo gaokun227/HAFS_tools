@@ -181,7 +181,8 @@
   else
      tc%vortexrep=0
   endif
-  if ( trim(actions) == "vortexreplace" .or. trim(actions) == "hafsvi_preproc" ) then
+  ! KGao
+  if ( trim(actions) == "vortexreplace" .or. trim(actions) == "hafsvi_preproc" .or. trim(actions) == "hafsvi_preproc_ic") then
      call get_tc_info(trim(vortex_position_file), trim(tcvital_file), trim(besttrackfile), trim(tc_date), &
                    trim(vortexradius))
   endif
@@ -207,6 +208,17 @@
   if ( trim(actions) == "hafsvi_postproc" ) then
      write(*,'(a)')' --- call hafsvi_postproc/hafs_datool for '//trim(in_file)
      call hafsvi_postproc(trim(in_file), trim(infile_date), trim(out_dir), nestdoms)
+  endif
+
+  ! KGao
+  if ( trim(actions) == "hafsvi_preproc_ic" ) then
+     write(*,'(a)')' --- call hafsvi_preproc_ic/hafs_datool for '//trim(in_grid)
+     call hafsvi_preproc_ic(trim(in_dir), trim(infile_date), nestdoms, trim(vortexradius), trim(res), trim(out_file))
+  endif
+
+  if ( trim(actions) == "hafsvi_postproc_ic" ) then
+     write(*,'(a)')' --- call hafsvi_postproc/hafs_datool for '//trim(in_file)
+     call hafsvi_postproc_ic(trim(in_file), trim(infile_date), trim(out_dir), nestdoms)
   endif
 
 !----------------------------------------------------------------
