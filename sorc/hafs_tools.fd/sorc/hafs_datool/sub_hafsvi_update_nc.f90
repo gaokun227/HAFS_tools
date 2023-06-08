@@ -23,8 +23,8 @@
 
   if ( my_proc_id == io_proc ) then
 
-     in_file_before=trim(in_dir)//'/gfs_data.tile7_for_vi.nc'
-     in_file_after=trim(in_dir)//'/gfs_data.tile7_after_vi.nc'
+     in_file_before=trim(in_dir)//'/gfs_data_for_vi.nc'
+     in_file_after=trim(in_dir)//'/gfs_data_after_vi.nc'
 
      !write (*,*) zind_str
      !write (*,*) in_file_before

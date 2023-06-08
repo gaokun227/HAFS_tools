@@ -167,9 +167,9 @@
      ! KGao - name changes
      !if ( nd == 0 ) then
      ncfile_grid=trim(out_dir)//'/grid_spec.nc'
-     ncfile_core=trim(out_dir)//'/gfs_data.nc'
-     ncfile_uv=trim(out_dir)//'/gfs_data.nc'
-     ncfile_tracer=trim(out_dir)//'/gfs_data.nc'
+     ncfile_core=trim(out_dir)//'/gfs_data_after_vi.nc'
+     ncfile_uv=trim(out_dir)//'/gfs_data_after_vi.nc'
+     ncfile_tracer=trim(out_dir)//'/gfs_data_after_vi.nc'
      !endif
 
      !-------------------------------------------------------------------------

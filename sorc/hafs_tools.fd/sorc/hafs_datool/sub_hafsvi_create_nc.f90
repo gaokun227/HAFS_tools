@@ -23,7 +23,7 @@
 
   if ( my_proc_id == io_proc ) then
 
-     in_file=trim(in_dir)//'/gfs_data.tile7.nc'
+     in_file=trim(in_dir)//'/gfs_data.nc' ! this is a generic name for the tiled file
      in_file_ctrl=trim(in_dir)//'/gfs_ctrl.nc'
 
      ! get nx,ny,nz from ic file
