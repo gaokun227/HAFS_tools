@@ -26,6 +26,9 @@
       real DIF,U_2S3,WT1,WT2,strm11,strm22,force,force2,PS_C1,PS_C2
       real fact,pt_c1,ps_rat,TEK1,TEK2,ESRR,T_OLD,Q_OLD,ZSFC,TSFC,QENV1
 
+      ! KGao
+      real R34obs, acount, rmw_estimate, rmw_final
+      real R_TH1, R_TH2
 !
       PARAMETER (NST=5,IR=200)
 !      PARAMETER (NX=158,NY=329,NZ=42,NST=5)
@@ -116,6 +119,8 @@
       integer(4), ALLOCATABLE :: IIV1(:,:),JJV1(:,:)
 
       REAL(4), ALLOCATABLE :: dist(:,:),PW1(:)
+      
+      REAL(4), ALLOCATABLE :: beta_adj(:,:) ! KGao
 
       integer(4) IH1(4),JH1(4),IV1(4),JV1(4)
 
@@ -428,8 +433,21 @@
 
       psfc_obs=Ipsfc*100.
       psfc_cls=Ipcls*100.
+      
+      ! KGao - get mean R34 from obs
+      R34obs = 0.
+      acount = 0.
+      DO i = 1, 4
+           if ( Ir_v4(i) < 0 ) Ir_v4(i)=0
+           R34obs = R34obs + Ir_v4(i)
+           acount = acount + 1.
+      ENDDO
+      IF ( acount > 0. ) R34obs = R34obs/acount 
+      print*, 'KGao check - R34obs', R34obs
 
       PRMAX=Irmax*1.
+      !PRMAX = R34obs ! KGao change PRMAX to mean R34
+
       Rctp=Irmax*1.       ! in km
 
       cost=cos(CLAT_NHC*rad)
@@ -782,6 +800,7 @@
            VMAX=FF
            IMV=I
            JMV=J
+           rmw_estimate = R_DIST ! KGao
          END IF
        END DO
        END DO
@@ -842,21 +861,46 @@
 !         end if
 
        vmax_1=0.
+
+       ! KGao - let beta vary with radius
+       ALLOCATE ( beta_adj(NX,NY) )
+
+       R_TH1 = rmw_estimate
+       R_TH2 = R34obs/1.e2
+       print *,'KGao check; R_TH1, R_TH2', R_TH1, R_TH2
+
        DO J=1,NY
        DO I=1,NX
-         USC2(I,J)=beta*USC1(I,J)+USCM(I,J)
-         VSC2(I,J)=beta*VSC1(I,J)+VSCM(I,J)
+
+         ! KGao - let beta change with radius
+
+         !USC2(I,J)=beta*USC1(I,J)+USCM(I,J)
+         !VSC2(I,J)=beta*VSC1(I,J)+VSCM(I,J)
+
+         IF ( dist(I,J) .lt. R_TH1) THEN
+            beta_adj(I,J) = beta
+         ELSE IF ( dist(I,J) .ge. R_TH1 .and. dist(I,J) .le. R_TH2 ) THEN
+             beta_adj(I,J) = beta*(dist(I,J)-R_TH2)/(R_TH1-R_TH2) 
+         ELSE 
+            beta_adj(I,J) = 0.
+         ENDIF
+
+         USC2(I,J)=beta_adj(I,J)*USC1(I,J)+USCM(I,J)
+         VSC2(I,J)=beta_adj(I,J)*VSC1(I,J)+VSCM(I,J)
+
          ff=sqrt(USC2(I,J)**2+VSC2(I,J)**2)*C101(I,J)
          IF(vmax_1.lt.ff.and.dist(i,j).lt.RMX_d)THEN
             vmax_1=ff
             imax12=i
             jmax12=j
+            rmw_final = dist(i,j) ! KGao 
          end if
        END DO
        END DO
 
        print*,'after beta correction'
        print*,'10m vmax,i,j=',vmax_1,imax12,jmax12
+       print*, 'rmw =', rmw_final
 
 ! now modify the horricane component (by beta)
 
@@ -993,15 +1037,25 @@
       ics=1
       fact=1.0
 
-      DO K=1,KMX
+      ! KGao - let beta vary with radius
+      !DO K=1,KMX
+      !DO J=1,NY
+      !DO I=1,NX
+      !	U_1(I,J,K)=U_1(I,J,K)*beta*PW(k)
+      !	V_1(I,J,K)=V_1(I,J,K)*beta*PW(k)
+      !END DO
+      !END DO
+      !END DO
+
       DO J=1,NY
       DO I=1,NX
-	U_1(I,J,K)=U_1(I,J,K)*beta*PW(k)
-	V_1(I,J,K)=V_1(I,J,K)*beta*PW(k)
-      END DO
+       U_1(I,J,:)=U_1(I,J,:)*beta_adj(I,J)
+       V_1(I,J,:)=V_1(I,J,:)*beta_adj(I,J)
       END DO
       END DO
 
+      ! KGao - check
+      !print*, 'KGao check,', beta_adj, U_1(imax1,jmax1,1)
 
       CALL CORT_MAT_2(IR1,NX,NY,KMX2,KMX,U_2SB,             &
 		T_2SB,SLP_2SB,R_2SB,RADIUS2,temp_e,TEK42,   &
