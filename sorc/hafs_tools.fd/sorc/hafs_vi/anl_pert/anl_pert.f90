@@ -1462,17 +1462,17 @@
 ! ---> step 3 adjustment
 
       ! KGao note - strange step; need to check RMN_HWRF value
-      REWIND(65)
-      READ(65)RMN_HWRF
-      IF(RMN_HWRF.lt.(PRMAX/deg2km))THEN
-        if(roc1.gt.roc2)roc2=roc1
-        if(rmw1.gt.rmw2)rmw2=rmw1
-      END IF
+      !REWIND(65)
+      !READ(65)RMN_HWRF
+      !IF(RMN_HWRF.lt.(PRMAX/deg2km))THEN
+      !  if(roc1.gt.roc2)roc2=roc1
+      !  if(rmw1.gt.rmw2)rmw2=rmw1
+      !END IF
 
-      print*,'=== KGao size check: after step 3 (RMN_HWRF)'
-      print*, 'RMN_HWRF, PRMAX/deg2km', RMN_HWRF, PRMAX/deg2km
-      print*,'model    rmw1,roc1=',rmw1,roc1
-      print*,'observed rmw2,roc2=',rmw2,roc2
+      !print*,'=== KGao size check: after step 3 (RMN_HWRF)'
+      !print*, 'RMN_HWRF, PRMAX/deg2km', RMN_HWRF, PRMAX/deg2km
+      !print*,'model    rmw1,roc1=',rmw1,roc1
+      !print*,'observed rmw2,roc2=',rmw2,roc2
 
 ! ---> step 4 adjustment
       xxx  = ftmin*rmw1 ; yyy = ftmax*rmw1  !* 50% Constraint
