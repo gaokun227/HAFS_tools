@@ -187,10 +187,10 @@
      ! KGao - name changes
      infile_grid=trim(indir)//'/grid_spec.nc'
      !infile_oro =trim(indir)//'/oro_data.nc'
-     infile_vertical=trim(indir)//'/gfs_data.nc' ! ak, bk
-     infile_core=trim(indir)//'/gfs_data.nc'
-     infile_tracer=trim(indir)//'/gfs_data.nc'
-     infile_uv=trim(indir)//'/gfs_data.nc'
+     infile_vertical=trim(indir)//'/gfs_data_for_vi.nc' ! ak, bk
+     infile_core=trim(indir)//'/gfs_data_for_vi.nc'
+     infile_tracer=trim(indir)//'/gfs_data_for_vi.nc'
+     infile_uv=trim(indir)//'/gfs_data_for_vi.nc'
      infile_sfc=trim(indir)//'/sfc_data.nc'
 
      ! KGao
