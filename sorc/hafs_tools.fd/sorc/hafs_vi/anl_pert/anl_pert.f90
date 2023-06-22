@@ -26,7 +26,7 @@
       real DSTX,DSTY,RDT2,UT1,VT1,USUM,VSUM,R_WT,PRES_CT,RAD_1,FACT_P
       real V_MAX,R34MOD,R34MODM,DEG2RAD,DEG2M,DEG2KM,FTMIN,FTMAX
       real CTMIN,CTMAX,DMIN,ROC_ADD,RMAX_0,ROC1,ROC2,RMW1,RMW2,RMW_RAT,RMW2_LIMIT
-      real ROC1_T,ROC2_T,ROC_RAT,ROC_MAX,ROC_RAT1,DMAX,FF0,FORCE,FORCE2,FORCE3
+      real ROC1_T,ROC2_T,ROC_RAT,ROC_MAX,ROC_MIN,ROC_RAT1,DMAX,FF0,FORCE,FORCE2,FORCE3
       real RMW1_MOD,ROC1_MOD,RMW2_OBS,ROC2_OBS,SLP_MD,ROCX_RAT,SLP_T
       real RMW2_0,ROC2_0,RMN_HWRF,XXX,YYY,DDD,AAA,BBB
       real DIFF_P,DIFF_P_X,DIFF_P_N,DELT_P,RMW1_NEW,ROC1_NEW,SCALE1
@@ -788,8 +788,15 @@
 
        DO J=1,NY
        DO I=1,NX
+
+         ! KGao - use estimated beta-adjusted 10m wind for R34 diag
+         ! U_1: TC wind, U1 - env wind; beta greater than 1 if mod Vmax less than obs
          U10(I,J)=(beta*U_1(I,J,1)+U1(I,J,1))*C101(I,J)
          V10(I,J)=(beta*V_1(I,J,1)+V1(I,J,1))*C101(I,J)
+         
+         ! KGao - do not use beta-adjusted wind for R34 diag
+         !U10(I,J)=(U_1(I,J,1)+U1(I,J,1))*C101(I,J)
+         !V10(I,J)=(V_1(I,J,1)+V1(I,J,1))*C101(I,J)
          USCT(I,J)=SQRT((U10(I,J))**2+(V10(I,J))**2)
        END DO
        END DO
@@ -1290,12 +1297,17 @@
 
       print*,'vobs,vobs_o,USCT(i_max,j_max)=',vobs,vobs_o,USCT(i_max,j_max)
 
-!!! Below is cleaned by KGao on 04/13/2023
+! KGao notes
+! Size-related treatments cleaned 04/13/2023
+! Comments updated on 06/22/2023
 
 ! ---> step 0: setting initial values for rmw1, rmw2, roc1 roc2
 
-      roc1=R34modm
-      roc2=R34obsm
+      roc1=R34modm ! max model R34 
+      roc2=R34obsm ! max obs R34
+
+      !roc1 = R34mod ! mean model R34
+      !roc2 = R34obs ! mean obs R34
 
       if(roc1.lt.50..or.roc2.lt.50.)then
         roc1=50.
@@ -1316,6 +1328,7 @@
       roc_rat=roc2/roc1
 
       roc_max=max(3.3,0.95*prmax/deg2km)
+      roc_min=2.5
 
       print*,'=== KGao size check - initial size parameters'
       print*,'model    rmw1,roc1=',rmw1,roc1
@@ -1324,7 +1337,9 @@
       print*,'ftmin, ftmax, ctmin, ctmax =', ftmin,ftmax,ctmin,ctmax
 
 ! ---> step 1 adjustment
-
+! reset ftmin,ftmax values
+! make sure roc is larger than rmw+dmin
+ 
       ftmin=0.95-(Rmax_0-20.)*0.005
       if(Rmax_0.GE.40.)then
         ftmin=0.85
@@ -1360,8 +1375,11 @@
       if(Rmax_0.LT.19..and.VRmax.LT.19.)then
         ftmin=1.0
       end if
+
+      ! final adjustment on ftmin and ftmax  
       if(ftmin.lt.0.85)ftmin=0.85
       ftmax=1.12
+
       roc_rat1=max(0.7,min(1.3,roc1/roc2))
       roc1=roc_rat1*roc2
 
@@ -1436,32 +1454,37 @@
       print*,'SLP_2S(1,1),SLP_1(ictr,jctr)=',SLP_2S(1,1),SLP_1(ictr,jctr)
 
 ! ---> step 2 adjustment
-
+! make sure roc is no larger than roc_max and no smaller than roc_min
+ 
       IF(roc1.gt.roc_max.or.roc2.gt.roc_max)THEN
         rocx_rat=roc_max/max(roc1,roc2)
         roc1=rocx_rat*roc1
         roc2=rocx_rat*roc2
-        if(roc2.gt.roc1)roc2=0.5*(roc1+roc2)
+        !if(roc2.gt.roc1)roc2=0.5*(roc1+roc2)
       ELSE IF(roc1.lt.2.5.or.roc2.lt.2.5)THEN
         rocx_rat=5./(roc1+roc2)
         roc1=rocx_rat*roc1
         roc2=rocx_rat*roc2
-        if(roc2.gt.roc1)roc2=0.5*(roc1+roc2)
-      ELSE
-        if(roc2.gt.roc1)roc2=0.5*(roc1+roc2)
+        !if(roc2.gt.roc1)roc2=0.5*(roc1+roc2)
+      !ELSE
+      !  if(roc2.gt.roc1)roc2=0.5*(roc1+roc2)
       END IF
+
+      ! KGao - move this out of above if-loop
+      ! reduce target roc if larger than source roc
+      if(roc2.gt.roc1) roc2=0.5*(roc1+roc2)
 
       rmw2_0=rmw2
       roc2_0=roc2
 
       print*,'=== KGao size check: after step 2 adjustment'
-      print*,'roc_max, roc_min', roc_max, 2.5
+      print*,'roc_max, roc_min', roc_max, roc_min 
       print*,'model    rmw1,roc1=',rmw1,roc1
       print*,'observed rmw2,roc2=',rmw2,roc2
 
 ! ---> step 3 adjustment
 
-      ! KGao note - strange step; need to check RMN_HWRF value
+      ! KGao note - strange step; wronge value of RMN_HWRF value can be read
       !REWIND(65)
       !READ(65)RMN_HWRF
       !IF(RMN_HWRF.lt.(PRMAX/deg2km))THEN
@@ -1475,10 +1498,17 @@
       !print*,'observed rmw2,roc2=',rmw2,roc2
 
 ! ---> step 4 adjustment
-      xxx  = ftmin*rmw1 ; yyy = ftmax*rmw1  !* 50% Constraint
-      rmw2 =  max(xxx,min(rmw2,yyy))   !* for bogus stretch
-      xxx  = ctmin*roc1 ; yyy = ctmax*roc1  !* 50% Constraint
-      roc2 =  max(xxx,min(roc2,yyy))   !* for bogus stretch
+! apply ftmin and ftmax to limit target rmw,roc
+! (potentially) further restrict values of target rmw and roc
+
+      xxx  = ftmin*rmw1 ; yyy = ftmax*rmw1
+      rmw2 =  max(xxx,min(rmw2,yyy)) 
+      xxx  = ctmin*roc1 ; yyy = ctmax*roc1
+      roc2 =  max(xxx,min(roc2,yyy))
+
+      ! KGao - make sure target roc is no less than source roc 
+      ! note roc2 is already reduced if larger than roc1 in step 2 adjustment
+      !if (roc2 .lt. roc1) roc2 = roc1
 
       ddd = 1./(roc1*rmw1*(roc1-rmw1))
       aaa = (rmw2*roc1**2-rmw1**2*roc2)*ddd
@@ -1491,6 +1521,7 @@
       print*,'First Guess: aaa,bbb=',aaa,bbb
 
 ! ---> step 5 adjustment
+! make additional adjustments to make sure aaa,bbb values are constrained 
 
       if(bbb.gt.0.1)then
         bbb=0.1
@@ -1541,11 +1572,12 @@
       n_iter=n_iter+1
 
 ! ---> final adjustment 
-
-      xxx  = ftmin*rmw1 ; yyy = ftmax*rmw1  !* 50% Constraint
-      rmw2 =  max(xxx,min(rmw2,yyy))   !* for bogus stretch
-      xxx  = ctmin*roc1 ; yyy = ctmax*roc1  !* 50% Constraint
-      roc2 =  max(xxx,min(roc2,yyy))   !* for bogus stretch
+! only one iter is done
+ 
+      xxx  = ftmin*rmw1 ; yyy = ftmax*rmw1 
+      rmw2 =  max(xxx,min(rmw2,yyy))  
+      xxx  = ctmin*roc1 ; yyy = ctmax*roc1 
+      roc2 =  max(xxx,min(roc2,yyy)) 
 
       ddd = 1./(roc1*rmw1*(roc1-rmw1))
       aaa = (rmw2*roc1**2-rmw1**2*roc2)*ddd
@@ -1588,7 +1620,8 @@
               SLP_2S(1,1),strm2(1,1),strm1(1,1),SLPE(ictr,jctr)
        print*,'SLP_T,Psfc_obs,Psfc_cls,DELT_P=',SLP_T,Psfc_obs,Psfc_cls,DELT_P
 
-       ! KGao note - it_flag is set to 3
+       ! KGao note - it_flag is set to 3 so only one iter is done
+
        if(diff_p.gt.diff_p_x.and.it_flag.eq.1)then
          ftmax=ftmax+0.005
          rmw1_new=ftmax*rmw1
