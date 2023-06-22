@@ -14,7 +14,7 @@
       integer NST,INITOPT,IUNIT,I360,ITIM,NX1,NY1,NZ1,KMX,JX,JY
       integer ICLAT,ICLON,Ipsfc,Ipcls,Irmax,ivobs,Ir_vobs
       integer NCHT,KSTM,k850,KST,IWMIN1,IWMAX1,JWMIN1,JWMAX1
-      integer ictr,jctr,ismth_01,N_smth,I_max1,J_max1,i_max,j_max,IMV,JMV
+      integer ictr,jctr,ismth_01,N_smth,I_max1,J_max1,i_max,j_max,r_max,IMV,JMV
       integer ICTRM1,ICTRP1,JCTRM1,JCTRP1,IR1,IR,IT1,IR0,IT2,I2,J2,KM1,M1
       integer IRAD_1,N_ITER,MAX_ITER,N,K1,IT_FLAG,IR_1
       real GAMMA,G,Rd,D608,Cp,COEF1,COEF2,COEF3,GRD,pi,pi_deg,pi180,DST1
@@ -1063,7 +1063,7 @@
       U_2S=0.
       V_2S=0.
       DO K=1,KM1
-      DO I=IR0,IR1
+      DO I=IR0,IR1 ! KGao - IR0=3, IR1=120 => 0.3deg and 12deg
          usum=0.
          vsum=0.
          DO J=1,IT1
@@ -1075,13 +1075,24 @@
       END DO
       END DO
 
-      DO I=1,IR0
+      DO I=1,IR0 ! KGao - within 0.3deg
          r_wt=RADUS(I)/RADUS(IR0)
          DO K=1,KM1
-            U_2S(I,K)=U_2S(IR0,K)*r_wt
+            U_2S(I,K)=U_2S(IR0,K)*r_wt ! KGao - linearly decreases inward
             V_2S(I,K)=V_2S(IR0,K)*r_wt
          END DO
       END DO
+
+      ! KGao - determine RMW based on axisymmetric TC only (U_2S and V_2S)
+      smax1 = 0.
+      r_max = 0 
+      DO I=IR0,30 ! no need to go beyond 3 deg
+         smax2=SQRT(U_2S(I,1)**2+V_2S(I,1)**2)
+         IF (smax2 .gt. smax1) then
+            smax1 = smax2
+            r_max = I
+         END IF
+      ENDDO
 
 ! check the asymmetry of the storm
 
@@ -1314,8 +1325,10 @@
         roc2=50.
       end if
 
-      rmw1 = max(Rmax_0/deg2km,0.01)
-      rmw2 = 0.5*(rmw1+VRmax/deg2km)    !* target RMW  [deg]
+      ! KGao  
+      rmw1 = max(Rmax_0/deg2km,0.01)    ! RMW based on 2D total wind field 
+      !rmw1 = max(r_max*0.1, 0.01)       ! RMW based on azimuthal-mean TC wind
+      rmw2 = 0.5*(rmw1+VRmax/deg2km)    ! target RMW  [deg]
 
       rmw_rat=rmw2/rmw1
       rmw2_limit=19./deg2km
