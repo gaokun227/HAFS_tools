@@ -1498,6 +1498,8 @@
 ! ---> step 3 adjustment
 
       ! KGao note - strange step; wronge value of RMN_HWRF value can be read
+      ! PRMAX - obs ROCI from tc vitals
+      ! RMN_HWRF - also obs ROCI (read from fort.85 generated in split.f; set to obs ROCI if iflag_cold != 0)
       !REWIND(65)
       !READ(65)RMN_HWRF
       !IF(RMN_HWRF.lt.(PRMAX/deg2km))THEN
