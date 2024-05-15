@@ -71,7 +71,7 @@
   implicit none
 
   !----parameter define
-  integer              :: i, j, k, n, iind, iargc, rcode, ks, ke, nestdoms
+  integer              :: i, j, k, n, iind, iargc, rcode, ks, ke, nestdoms, zsel
   character (len=2500) :: actions, arg, arg1
   character (len=2500) :: in_dir='w', in_file='w', in_grid='w', &
                           vortex_position_file='w', tcvital_file='w', besttrackfile='w', &
@@ -85,6 +85,7 @@
   character (len=50  ) :: interpolation_pointsc='' !
   character (len=50  ) :: nestdomsc=''      ! number for nest domains, 1-30, 1=nest02.tile2
                                             ! in vi_preproc, combine all domains and output to one rot-ll grid.
+  character (len=50  ) :: zselc=''          ! KGao
 
   real, dimension(3)   :: center
 !----------------------------------------------------------------
@@ -124,6 +125,7 @@
                case ('--debug_level');    debug_levelc=arg(j+1:n)  !
                case ('--interpolation_points'); interpolation_pointsc=arg(j+1:n)  !
                case ('--nestdoms');       nestdomsc=arg(j+1:n)  !
+               case ('--zsel');           zselc=arg(j+1:n)  ! KGao
         end select
      enddo
   endif
@@ -181,7 +183,8 @@
   else
      tc%vortexrep=0
   endif
-  if ( trim(actions) == "vortexreplace" .or. trim(actions) == "hafsvi_preproc" ) then
+  ! KGao
+  if ( trim(actions) == "vortexreplace" .or. trim(actions) == "hafsvi_preproc" .or. trim(actions) == "hafsvi_preproc_ic") then
      call get_tc_info(trim(vortex_position_file), trim(tcvital_file), trim(besttrackfile), trim(tc_date), &
                    trim(vortexradius))
   endif
@@ -207,6 +210,29 @@
   if ( trim(actions) == "hafsvi_postproc" ) then
      write(*,'(a)')' --- call hafsvi_postproc/hafs_datool for '//trim(in_file)
      call hafsvi_postproc(trim(in_file), trim(infile_date), trim(out_dir), nestdoms)
+  endif
+
+  ! KGao
+  if ( trim(actions) == "hafsvi_preproc_ic" ) then
+     write(*,'(a)')' --- call hafsvi_preproc_ic/hafs_datool for '//trim(in_grid)
+     call hafsvi_preproc_ic(trim(in_dir), trim(infile_date), nestdoms, trim(vortexradius), trim(res), trim(out_file))
+  endif
+
+  if ( trim(actions) == "hafsvi_postproc_ic" ) then
+     write(*,'(a)')' --- call hafsvi_postproc_ic/hafs_datool for '//trim(in_file)
+     call hafsvi_postproc_ic(trim(in_file), trim(infile_date), trim(out_dir), nestdoms)
+  endif
+
+  zsel=28; if (len_trim(zselc) > 0 ) read(zselc,*)zsel
+  !zind_str = 28 ! make this an arg
+  if ( trim(actions) == "hafsvi_create_nc" ) then
+     write(*,'(a)')' --- call hafsvi_create_nc/hafs_datool for '//trim(in_dir)
+     call hafsvi_create_nc(trim(in_dir), zsel, trim(out_file))
+  endif
+
+  if ( trim(actions) == "hafsvi_update_nc" ) then
+     write(*,'(a)')' --- call hafsvi_update_nc/hafs_datool for '//trim(in_dir)
+     call hafsvi_update_nc(trim(in_dir), zsel, trim(out_file))
   endif
 
 !----------------------------------------------------------------
