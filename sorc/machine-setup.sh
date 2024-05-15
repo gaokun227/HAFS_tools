@@ -97,7 +97,7 @@ elif [[ -d /glade ]] ; then
     fi
     target=cheyenne
     module purge
-elif [[ -d /lustre && -d /ncrc ]] ; then
+elif [[ -d /gpfs && -d /autofs ]] ; then
     # We are on GAEA.
     if ( ! eval module help > /dev/null 2>&1 ) ; then
         # We cannot simply load the module command.  The GAEA
