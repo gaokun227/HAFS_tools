@@ -1,16 +1,16 @@
 #%Module#####################################################
 ## Build module for Gaea
 #############################################################
-      module unload PrgEnv-pgi PrgEnv-intel PrgEnv-gnu
-      module load   PrgEnv-intel
-      module rm intel
-      module rm gcc
-      module load cray-libsci/22.10.1.2
-      module load intel-classic/2022.0.2
-      module load cray-hdf5
-      module load cray-netcdf
-      module load craype-hugepages4M
-      module load cmake/3.23.1
+module unload PrgEnv-pgi PrgEnv-intel PrgEnv-gnu
+module load   PrgEnv-intel
+module rm intel
+module rm gcc
+module load cray-libsci/22.10.1.2
+module load intel-classic/2022.0.2
+module load cray-hdf5
+module load cray-netcdf
+module load craype-hugepages4M
+module load cmake/3.23.1
 
 setenv CMAKE_C_COMPILER cc
 setenv CMAKE_CXX_COMPILER CC
