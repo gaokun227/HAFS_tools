@@ -1,15 +1,13 @@
 ## Overview 
 
-The codes here are taken from the public [HAFS repo](https://github.com/hafs-community/HAFS)  
+The codes here are originally taken from the public [HAFS repo](https://github.com/hafs-community/HAFS)  
 
-We just use the code related to initial vortex correction  
+We just use the codes related to Vortex Initilization  
+
+Modifications are made at GFDL to facilitate the use of VI in GFDL SHiELD applications (please refer to [this paper](https://www.frontiersin.org/articles/10.3389/feart.2024.1396390/full))
 
 ## To compile the code  
 
 cd sorc/  
 build_tools.sh
-
-Kun has tested the code on Jet, on which all modules have been installed; 
-see modulefiles/modulefile.hafs.jet
-
 
