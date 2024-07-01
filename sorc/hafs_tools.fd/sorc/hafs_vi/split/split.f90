@@ -2180,7 +2180,6 @@
 
 !.. DETERMINE FILTER DOMAIN D0 (=1.25*Rf)
 
-
       CALL FILTER(RS,TW,RF,RFAVG,KST,IBGS,IVOBS,iflag_cold)
 
       AMDX=CLON_NHC-CLON_NEW
@@ -3117,15 +3116,19 @@
       END SUBROUTINE STRT_PT
 
       SUBROUTINE FILTER(RS,TW,RF,RFAVG,KST,IBGS,IVOBS,iflag_cold)
+
+      ! KGao notes 
+      ! - for determing filter domain size
+      ! - R0(I) is actually used as the filter domain boundary
+      ! - although orginal GFDL method is used, the final R0 is eventually forced to be obs ROCI 
+      ! - cleaned on 06/23/2023
+
       use vect
       use rsfc
       implicit none
       integer, PARAMETER:: IX=11,JX=11,IT=24,IR=50
-!      integer, PARAMETER:: NST=10
       integer I, ICK,  K, IK, IS, KST, IBGS, IVOBS, iflag_cold
-
       real DXX, DV, CNT, IST, RMN, DVDR, RFAVG, RMN_FACT, RMN_HWRF
-
       real RS, RF
       real TW
       DIMENSION RS(IT),TW(IT,IR),RF(IT),IST(IT)
@@ -3134,17 +3137,15 @@
 
       ICK = 1
       CNT = 0.000004
-!      print *,'CNT  ',CNT
 
       DO I=1,IT
         IST(I) = IFIX(RS(I)*10)
-!c      print *,'STARTING POINT ',I,IST(I)
       ENDDO
 
+      ! KGao - detect filter domain based on KBR95
       iloop: do i=1,it
         IS = IST(I)
 
-!CWH      DO 30 K=IS,IR
         kloop: do k=is,ir-1
           IF(TW(I,K).GE.6..OR.TW(I,K).LT.3.) cycle kloop
           DXX = 10000.
@@ -3168,20 +3169,25 @@
           ENDIF
         ENDDO
 
-!c      print *,'3rd Catagory ',I
-        RF(I) = 5. ! 10. KGao reduce default value of 10deg to 5deg
+        RF(I) = 5. ! 10. KGao - reduce default value of 10deg to 5deg
       enddo iloop
 
-!c      RMAX=0.
+      ! KGao - check ori RF values vi GFDL method
       DO I=1,IT
-        print *,'Rf AT EACH DIRECTION ',I,RF(I)
-!        RF(I) =max(RF(I),3.)
-        RF(I) = max(RF(I),2.2)
-!2014        RF(I) = min(RF(I),1.1*STRPSF(KST))
-!        RF(I) = min(RF(I),STRPSF(KST))
-        RF(I) = min(RF(I),1.1*STRPSF(KST))
+        print *,'RF AT EACH DIRECTION detected via GFDL method',I,RF(I)
       END DO
 
+      ! KGao - 1st adjustment
+      ! RF should be larger than 2.2 and smaller than 1.1*ROCI_obs
+      ! This makes the filter domain depends on ROCI_obs in many cases
+      DO I=1,IT
+        RF(I) = max(RF(I),2.2)
+        RF(I) = min(RF(I),1.1*STRPSF(KST)) !STRPSF is obs ROCI
+      END DO
+
+      ! KGao - 2nd adjustment 
+      ! RMN is the azimuthal mean RF
+      ! RF(I) shoud be no more than 2.5*RMN and no less than 0.4*RMN  
       RMN=0.
       DO I=1,IT
         RMN=RMN+RF(I)
@@ -3193,75 +3199,50 @@
         IF(RF(I).LT.0.4*RMN)RF(I)=0.4*RMN
       END DO
 
+      ! KGao - 3rd adjustment (3-point smoothing)
       DO I=2,IT-1
         R01(I)=(RF(I)+RF(I-1)+RF(I+1))/3.
       END DO
       R01(1)=(RF(1)+RF(IT)+RF(2))/3.
       R01(IT)=(RF(IT)+RF(IT-1)+RF(1))/3.
-
       RF=R01
 
+      ! KGao - check adjusted RF
+      print *, 'OBS ROCI: ',STRPSF(KST)
+      DO I=1,IT
+        print *,'RF AT EACH DIRECTION after adjustments',I,RF(I)
+      END DO
 
+      ! KGao - 4th adjustment 
+      ! introduces R0; RF is not touched
+
+      ! IBGS = 2 is used if cold start; but makes no difference blow
+      ! 3 steps below:
+      ! R0(I) -> 1.1*RF(I)
+      ! R0(I) -> smaller than 1.5*ROCI_obs and larger than 2.5
+      ! R0(I) -> += 0.4deg  (strange) 
       IF(IBGS.eq.0)THEN
         DO I=1,IT
-!            R0(I) = 1.25 * RF(I)
-!2014            R0(I) = 1.1 * RF(I)
             R0(I) = 1.1* RF(I)
-!            R0(I)=max(R0(I),3.3)
-!            R0(I)=min(R0(I),1.4*STRPSF_06(KST))
             R0(I)=min(R0(I),1.5*STRPSF(KST))
             R0(I)=max(R0(I),2.5)+0.4
             IF(R0(I).GT.11.)R0(I)=11.
-            print *,'R0,Rf AT EACH DIRECTION ',I,R0(I),RF(I)
         ENDDO
       ELSE IF(IBGS.eq.2)THEN
         DO I=1,IT
-!            R0(I) = 1.25 * RF(I)
-!2014            R0(I) = 1.1 * RF(I)
             R0(I) = 1.1* RF(I)
-!            R0(I)=min(R0(I),2.5*STRPSF(KST))
-!            R0(I)=max(R0(I),3.3)
             R0(I)=min(R0(I),1.5*STRPSF(KST))
             R0(I)=max(R0(I),2.5)+0.4
             IF(R0(I).GT.11.)R0(I)=11.
-            print *,'R0,Rf AT EACH DIRECTION ',I,R0(I),RF(I)
         ENDDO
       ELSE
         DO I=1,IT
-!          R0(I) = 1.25 * RF(I)
-!2014          R0(I) = 1.1 * RF(I)
           R0(I) = 1.1* RF(I)
           R0(I)=min(R0(I),1.5*STRPSF(KST))
           R0(I)=max(R0(I),2.5)+0.4
           IF(R0(I).GT.11.)R0(I)=11.
-          print *,'R0,Rf AT EACH DIRECTION ',I,R0(I),RF(I)
         ENDDO
       END IF
-
-!        DO I=2,IT-1
-!          R01(I)=(R0(I-1)+R0(I)+R0(I+1))/3.
-!        END DO
-!        R01(1)=(R0(IT)+R0(1)+R0(2))/3.
-!        R01(IT)=(R0(IT-1)+R0(IT)+R0(1))/3.
-!        R0=R01
-
-
-!      IF(IBGS.NE.1)THEN
-!        RMIN=1.E20
-!        DO I=1,IT
-!          IF(RMIN.GT.R0(I))RMIN=R0(I)
-!        END DO
-!        RMIN=min(RMIN,1.75*STRPSF(KST))
-!        R0=RMIN
-!      END IF
-
-!  for bogus storm only
-!       RF=5.               !
-!       R0=6.25             ! R0=4.5 (15m/s), 5.0(20m/s), 6.25 (35 m/s)
-!  for bogus storm only
-
-      print *,'STRPSF(KST)=',STRPSF(KST)
-!C test for circular domain
 
       RMN=0.
       DO I=1,IT
@@ -3269,7 +3250,11 @@
       END DO
       RMN=RMN/FLOAT(IT)
 
-      print*,'RMN before adjustment=',RMN
+      ! KGao - check R0 
+      DO I=1,IT
+        print *,'R0 AT EACH DIRECTION',I,R0(I)
+      END DO
+      print*,'MEAN R0',RMN
 
       RMN_HWRF=RMN
 
@@ -3277,28 +3262,30 @@
         REWIND(65)
         READ(65)RMN_HWRF
       END IF
+
+      ! KGao - if cold start (iflag=1), RMN_HWRF is set to ROCI_obs
       IF(iflag_cold.ne.0)THEN
         RMN_HWRF=STRPSF(KST)
       END IF
 
+      ! KGao - final adjustment on R0,RF based on ratio of RMN_HWRF and mean of R0 
+      ! if cold start (iflag=1), this forces R0 to be ROCI_obs  
       RMN_FACT=RMN_HWRF/RMN
       DO I=1,IT
-        RF(I)=RF(I)*RMN_FACT
+        RF(I)=RF(I)*RMN_FACT 
         R0(I)=R0(I)*RMN_FACT
       END DO
 
+      ! KGao - RMN is equal to ROCI_obs if cold start (iflag=1)
       RMN=RMN_HWRF
-
-      PRINT*,'MEAN RADIUS=',RMN
+      PRINT*,'RMN to be written to fort.85',RMN
       WRITE(85)RMN
-!      WRITE(85)RF
 
+      ! KGao - final check and final limiter (5 deg max)
       DO I=1,IT
-        print *,'R0,Rf AT EACH DIRECTION ',I,R0(I),RF(I)
-        ! KGao
+        print *,'Final R0 AT EACH DIRECTION ',I,R0(I)
         R0(I)=min(R0(I),5.)
         RF(I)=min(RF(I),5.)
-        print *,'limited R0,Rf AT EACH DIRECTION ',I,R0(I),RF(I)
       ENDDO
 
       RETURN
