@@ -3209,6 +3209,11 @@
 
       ! KGao - check adjusted RF
       print *, 'OBS ROCI: ',STRPSF(KST)
+      if ( STRPSF(KST) .gt. 4.5) then
+         print *, 'KGao note: ROCI is too large; force it smaller'
+         STRPSF(KST) = 4.5 ! KGao fix
+      endif
+
       DO I=1,IT
         print *,'RF AT EACH DIRECTION after adjustments',I,RF(I)
       END DO
@@ -3283,9 +3288,9 @@
 
       ! KGao - final check and final limiter (5 deg max)
       DO I=1,IT
-        print *,'Final R0 AT EACH DIRECTION ',I,R0(I)
         R0(I)=min(R0(I),5.)
         RF(I)=min(RF(I),5.)
+        print *,'Final Rf, R0 AT EACH DIRECTION ',I, Rf(I), R0(I)
       ENDDO
 
       RETURN
