@@ -3201,6 +3201,12 @@
 
       RF=R01
 
+      ! KGao - check adjusted RF
+      print *, 'OBS ROCI: ',STRPSF(KST)
+      if ( STRPSF(KST) .gt. 4.5) then
+         print *, 'KGao note: ROCI is too large; force it smaller'
+         STRPSF(KST) = 4.5 ! KGao fix
+      endif
 
       IF(IBGS.eq.0)THEN
         DO I=1,IT
