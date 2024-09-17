@@ -1,1 +1,4 @@
 *.pyc
+*.diff
+*.out
+*.log
