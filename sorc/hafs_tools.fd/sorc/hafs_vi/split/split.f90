@@ -328,6 +328,7 @@
 
 
 ! MAX Surface P
+
       PSFX=0.
       DO J=1,NY
         DO I=1,NX
@@ -340,6 +341,12 @@
       END DO
 
       PRINT*,'IPX,JPX,PSFX=',IPX,JPX,PSFX
+  
+      ! KGao: stop the code if PSFX is too large, indicating there are issues
+      IF (PSFX .GT. 1E6) THEN
+         print*, 'Warning: input data has missing values !!!'
+         STOP
+      ENDIF
 
 ! constant P
 ! Double resolution for low levels
@@ -3017,7 +3024,10 @@
         print *,'MEAN TANGENTIAL WIND ',J,TWM(J)
         
         ! KGao - kill the program if strange wind value shows up 
-        IF ( ABS(TWM(J)) .GT. 1e4) STOP 
+        IF ( ABS(TWM(J)) .GT. 1e4) THEN
+           print*, 'Warning: MEAN TANGENTIAL WIND is too large'
+           STOP
+        ENDIF 
 
       enddo
 
