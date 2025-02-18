@@ -3024,7 +3024,10 @@
         print *,'MEAN TANGENTIAL WIND ',J,TWM(J)
         
         ! KGao - kill the program if strange wind value shows up 
-        IF ( ABS(TWM(J)) .GT. 1e4) STOP 
+        IF ( ABS(TWM(J)) .GT. 1e4) THEN
+           print*, 'Warning: MEAN TANGENTIAL WIND is too large'
+           STOP
+        ENDIF 
 
       enddo
 
