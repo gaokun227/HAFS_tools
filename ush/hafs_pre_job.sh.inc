@@ -112,13 +112,13 @@ elif [[ -d /gpfs && -d /autofs ]] ; then
         __ms_source_etc_profile=no
     fi
     module purge > /dev/null 2>&1
-    module purge
+    #module purge
     # clean up after purge
     unset _LMFILES_
     unset _LMFILES_000
     unset _LMFILES_001
     unset LOADEDMODULES
-    module load modules
+    #module load modules
     if [[ -d /opt/cray/ari/modulefiles ]] ; then
         module use -a /opt/cray/ari/modulefiles
     fi
@@ -135,7 +135,7 @@ elif [[ -d /gpfs && -d /autofs ]] ; then
       source /etc/profile
       unset __ms_source_etc_profile
     fi
-    target=gaea
+    target=gaea_c5
 elif [[ "$(hostname)" =~ "odin" ]]; then
     target="odin"
 else
