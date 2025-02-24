@@ -1,4 +1,4 @@
-# Install script for directory: /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi
+# Install script for directory: /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,37 +44,37 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/create_trak_guess/cmake_install.cmake")
+  include("/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/create_trak_guess/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/create_trak_init/cmake_install.cmake")
+  include("/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/create_trak_init/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/split/cmake_install.cmake")
+  include("/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/split/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_pert/cmake_install.cmake")
+  include("/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_pert/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_combine/cmake_install.cmake")
+  include("/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_combine/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_enhance/cmake_install.cmake")
+  include("/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_enhance/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_bogus/cmake_install.cmake")
+  include("/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_bogus/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -85,5 +85,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

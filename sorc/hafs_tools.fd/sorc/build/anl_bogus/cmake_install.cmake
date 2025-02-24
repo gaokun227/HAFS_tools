@@ -1,4 +1,4 @@
-# Install script for directory: /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus
+# Install script for directory: /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,25 +43,25 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x")
+  if(EXISTS "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x"
+         FILE "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x")
+   "/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec" TYPE EXECUTABLE FILES "/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_bogus/hafs_vi_anl_bogus.x")
-  if(EXISTS "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x")
+  file(INSTALL DESTINATION "/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec" TYPE EXECUTABLE FILES "/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_bogus/hafs_vi_anl_bogus.x")
+  if(EXISTS "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_bogus/../../../exec/hafs_vi_anl_bogus.x")
     endif()
   endif()
 endif()

@@ -1,4 +1,4 @@
-# Install script for directory: /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance
+# Install script for directory: /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,25 +43,25 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x")
+  if(EXISTS "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x"
+         FILE "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x")
+   "/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec" TYPE EXECUTABLE FILES "/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_enhance/hafs_vi_anl_enhance.x")
-  if(EXISTS "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x")
+  file(INSTALL DESTINATION "/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec" TYPE EXECUTABLE FILES "/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/anl_enhance/hafs_vi_anl_enhance.x")
+  if(EXISTS "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi/anl_enhance/../../../exec/hafs_vi_anl_enhance.x")
     endif()
   endif()
 endif()

@@ -57,10 +57,10 @@ RM = /autofs/ncrc-svm1_sw/gaea-c5/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi
+CMAKE_SOURCE_DIR = /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build
+CMAKE_BINARY_DIR = /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/CMakeFiles /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/CMakeFiles /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

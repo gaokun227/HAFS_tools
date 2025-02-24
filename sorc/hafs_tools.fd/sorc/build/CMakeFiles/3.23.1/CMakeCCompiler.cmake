@@ -1,7 +1,7 @@
-set(CMAKE_C_COMPILER "/opt/cray/pe/craype/2.7.20/bin/cc")
+set(CMAKE_C_COMPILER "/opt/cray/pe/craype/2.7.30/bin/cc")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "Intel")
-set(CMAKE_C_COMPILER_VERSION "2021.5.0.20211109")
+set(CMAKE_C_COMPILER_VERSION "2021.10.0.20230609")
 set(CMAKE_C_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_C_COMPILER_WRAPPER "CrayPrgEnv")
 set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "11")
@@ -66,7 +66,7 @@ endif()
 
 
 
-set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "/opt/cray/pe/mpich/8.1.25/ofi/intel/19.0/include;/opt/cray/pe/libsci/22.10.1.2/INTEL/19.0/x86_64/include;/opt/cray/pe/netcdf/4.9.0.3/intel/19.0/include;/opt/cray/pe/hdf5/1.12.2.3/intel/19.0/include;/opt/cray/pe/dsmml/0.2.2/dsmml/include;/opt/intel/oneapi/mkl/2022.0.2/include;/opt/intel/oneapi/compiler/2022.0.2/linux/compiler/include/intel64;/opt/intel/oneapi/compiler/2022.0.2/linux/compiler/include/icc;/opt/intel/oneapi/compiler/2022.0.2/linux/compiler/include;/usr/local/include;/usr/lib64/gcc/x86_64-suse-linux/7/include;/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed;/usr/include")
+set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "/opt/cray/pe/mpich/8.1.28/ofi/intel/2022.1/include;/opt/cray/pe/libsci/24.07.0/INTEL/2023.2/x86_64/include;/opt/cray/pe/netcdf/4.9.0.13/intel/2023.2/include;/opt/cray/pe/hdf5/1.14.3.1/intel/2023.2/include;/opt/cray/pe/dsmml/0.2.2/dsmml/include;/opt/intel/oneapi/mkl/2023.2.0/include;/opt/intel/oneapi/compiler/2023.2.0/linux/lib/oclfpga/include;/opt/intel/oneapi/compiler/2023.2.0/linux/compiler/include/intel64;/opt/intel/oneapi/compiler/2023.2.0/linux/compiler/include/icc;/opt/intel/oneapi/compiler/2023.2.0/linux/compiler/include;/usr/local/include;/usr/lib64/gcc/x86_64-suse-linux/7/include;/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed;/usr/include")
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "hugetlbfs;hdf5_hl;hdf5;netcdf;sci_intel_mpi;sci_intel;dl;mpi_intel;dsmml;imf;m;ifcoremt;ifport;pthread;imf;svml;irng;m;ipgo;decimal;cilkrts;stdc++;gcc;gcc_s;irc;svml;c;gcc;gcc_s;irc_s;dl;c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/opt/cray/pe/mpich/8.1.25/ofi/intel/19.0/lib;/opt/cray/pe/libsci/22.10.1.2/INTEL/19.0/x86_64/lib;/opt/cray/pe/netcdf/4.9.0.3/intel/19.0/lib;/opt/cray/pe/hdf5/1.12.2.3/intel/19.0/lib;/opt/cray/pe/dsmml/0.2.2/dsmml/lib;/opt/intel/oneapi/mkl/2022.0.2/lib/intel64;/opt/intel/oneapi/compiler/2022.0.2/linux/compiler/lib/intel64_lin;/opt/intel/oneapi/compiler/2022.0.2/linux/lib;/usr/lib64/gcc/x86_64-suse-linux/7;/usr/lib64;/lib64;/usr/x86_64-suse-linux/lib;/lib;/usr/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/opt/cray/pe/mpich/8.1.28/ofi/intel/2022.1/lib;/opt/cray/pe/libsci/24.07.0/INTEL/2023.2/x86_64/lib;/opt/cray/pe/netcdf/4.9.0.13/intel/2023.2/lib;/opt/cray/pe/hdf5/1.14.3.1/intel/2023.2/lib;/opt/cray/pe/dsmml/0.2.2/dsmml/lib;/opt/intel/oneapi/mkl/2023.2.0/lib/intel64;/opt/intel/oneapi/compiler/2023.2.0/linux/compiler/lib/intel64_lin;/opt/intel/oneapi/compiler/2023.2.0/linux/lib;/usr/lib64/gcc/x86_64-suse-linux/7;/usr/lib64;/lib64;/usr/x86_64-suse-linux/lib;/lib;/usr/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

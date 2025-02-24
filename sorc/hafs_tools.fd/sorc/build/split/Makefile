@@ -57,10 +57,10 @@ RM = /autofs/ncrc-svm1_sw/gaea-c5/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi
+CMAKE_SOURCE_DIR = /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/hafs_vi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build
+CMAKE_BINARY_DIR = /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(CMAKE_COMMAND) -E cmake_progress_start /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/CMakeFiles /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/split//CMakeFiles/progress.marks
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build/CMakeFiles 0
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(CMAKE_COMMAND) -E cmake_progress_start /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/CMakeFiles /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/split//CMakeFiles/progress.marks
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/clean
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/preinstall
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/preinstall
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 split/CMakeFiles/hafs_vi_split.x.dir/rule:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/CMakeFiles/hafs_vi_split.x.dir/rule
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 split/CMakeFiles/hafs_vi_split.x.dir/rule
 .PHONY : split/CMakeFiles/hafs_vi_split.x.dir/rule
 
 # Convenience name for target.
@@ -172,7 +172,7 @@ hafs_vi_split.x: split/CMakeFiles/hafs_vi_split.x.dir/rule
 
 # fast build rule for target.
 hafs_vi_split.x/fast:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/build
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/build
 .PHONY : hafs_vi_split.x/fast
 
 BOUND.o: BOUND.f90.o
@@ -180,7 +180,7 @@ BOUND.o: BOUND.f90.o
 
 # target to build an object file
 BOUND.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/BOUND.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/BOUND.f90.o
 .PHONY : BOUND.f90.o
 
 BOUND.i: BOUND.f90.i
@@ -188,7 +188,7 @@ BOUND.i: BOUND.f90.i
 
 # target to preprocess a source file
 BOUND.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/BOUND.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/BOUND.f90.i
 .PHONY : BOUND.f90.i
 
 BOUND.s: BOUND.f90.s
@@ -196,7 +196,7 @@ BOUND.s: BOUND.f90.s
 
 # target to generate assembly for a file
 BOUND.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/BOUND.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/BOUND.f90.s
 .PHONY : BOUND.f90.s
 
 FDUMP.o: FDUMP.f90.o
@@ -204,7 +204,7 @@ FDUMP.o: FDUMP.f90.o
 
 # target to build an object file
 FDUMP.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/FDUMP.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/FDUMP.f90.o
 .PHONY : FDUMP.f90.o
 
 FDUMP.i: FDUMP.f90.i
@@ -212,7 +212,7 @@ FDUMP.i: FDUMP.f90.i
 
 # target to preprocess a source file
 FDUMP.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/FDUMP.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/FDUMP.f90.i
 .PHONY : FDUMP.f90.i
 
 FDUMP.s: FDUMP.f90.s
@@ -220,7 +220,7 @@ FDUMP.s: FDUMP.f90.s
 
 # target to generate assembly for a file
 FDUMP.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/FDUMP.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/FDUMP.f90.s
 .PHONY : FDUMP.f90.s
 
 H12.o: H12.f90.o
@@ -228,7 +228,7 @@ H12.o: H12.f90.o
 
 # target to build an object file
 H12.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/H12.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/H12.f90.o
 .PHONY : H12.f90.o
 
 H12.i: H12.f90.i
@@ -236,7 +236,7 @@ H12.i: H12.f90.i
 
 # target to preprocess a source file
 H12.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/H12.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/H12.f90.i
 .PHONY : H12.f90.i
 
 H12.s: H12.f90.s
@@ -244,7 +244,7 @@ H12.s: H12.f90.s
 
 # target to generate assembly for a file
 H12.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/H12.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/H12.f90.s
 .PHONY : H12.f90.s
 
 I1MACH.o: I1MACH.f90.o
@@ -252,7 +252,7 @@ I1MACH.o: I1MACH.f90.o
 
 # target to build an object file
 I1MACH.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/I1MACH.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/I1MACH.f90.o
 .PHONY : I1MACH.f90.o
 
 I1MACH.i: I1MACH.f90.i
@@ -260,7 +260,7 @@ I1MACH.i: I1MACH.f90.i
 
 # target to preprocess a source file
 I1MACH.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/I1MACH.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/I1MACH.f90.i
 .PHONY : I1MACH.f90.i
 
 I1MACH.s: I1MACH.f90.s
@@ -268,7 +268,7 @@ I1MACH.s: I1MACH.f90.s
 
 # target to generate assembly for a file
 I1MACH.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/I1MACH.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/I1MACH.f90.s
 .PHONY : I1MACH.f90.s
 
 J4SAVE.o: J4SAVE.f90.o
@@ -276,7 +276,7 @@ J4SAVE.o: J4SAVE.f90.o
 
 # target to build an object file
 J4SAVE.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/J4SAVE.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/J4SAVE.f90.o
 .PHONY : J4SAVE.f90.o
 
 J4SAVE.i: J4SAVE.f90.i
@@ -284,7 +284,7 @@ J4SAVE.i: J4SAVE.f90.i
 
 # target to preprocess a source file
 J4SAVE.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/J4SAVE.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/J4SAVE.f90.i
 .PHONY : J4SAVE.f90.i
 
 J4SAVE.s: J4SAVE.f90.s
@@ -292,7 +292,7 @@ J4SAVE.s: J4SAVE.f90.s
 
 # target to generate assembly for a file
 J4SAVE.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/J4SAVE.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/J4SAVE.f90.s
 .PHONY : J4SAVE.f90.s
 
 SEPAR.o: SEPAR.f90.o
@@ -300,7 +300,7 @@ SEPAR.o: SEPAR.f90.o
 
 # target to build an object file
 SEPAR.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/SEPAR.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/SEPAR.f90.o
 .PHONY : SEPAR.f90.o
 
 SEPAR.i: SEPAR.f90.i
@@ -308,7 +308,7 @@ SEPAR.i: SEPAR.f90.i
 
 # target to preprocess a source file
 SEPAR.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/SEPAR.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/SEPAR.f90.i
 .PHONY : SEPAR.f90.i
 
 SEPAR.s: SEPAR.f90.s
@@ -316,7 +316,7 @@ SEPAR.s: SEPAR.f90.s
 
 # target to generate assembly for a file
 SEPAR.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/SEPAR.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/SEPAR.f90.s
 .PHONY : SEPAR.f90.s
 
 WNLIT.o: WNLIT.f90.o
@@ -324,7 +324,7 @@ WNLIT.o: WNLIT.f90.o
 
 # target to build an object file
 WNLIT.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLIT.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLIT.f90.o
 .PHONY : WNLIT.f90.o
 
 WNLIT.i: WNLIT.f90.i
@@ -332,7 +332,7 @@ WNLIT.i: WNLIT.f90.i
 
 # target to preprocess a source file
 WNLIT.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLIT.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLIT.f90.i
 .PHONY : WNLIT.f90.i
 
 WNLIT.s: WNLIT.f90.s
@@ -340,7 +340,7 @@ WNLIT.s: WNLIT.f90.s
 
 # target to generate assembly for a file
 WNLIT.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLIT.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLIT.f90.s
 .PHONY : WNLIT.f90.s
 
 WNLSM.o: WNLSM.f90.o
@@ -348,7 +348,7 @@ WNLSM.o: WNLSM.f90.o
 
 # target to build an object file
 WNLSM.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLSM.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLSM.f90.o
 .PHONY : WNLSM.f90.o
 
 WNLSM.i: WNLSM.f90.i
@@ -356,7 +356,7 @@ WNLSM.i: WNLSM.f90.i
 
 # target to preprocess a source file
 WNLSM.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLSM.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLSM.f90.i
 .PHONY : WNLSM.f90.i
 
 WNLSM.s: WNLSM.f90.s
@@ -364,7 +364,7 @@ WNLSM.s: WNLSM.f90.s
 
 # target to generate assembly for a file
 WNLSM.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLSM.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNLSM.f90.s
 .PHONY : WNLSM.f90.s
 
 WNNLS.o: WNNLS.f90.o
@@ -372,7 +372,7 @@ WNNLS.o: WNNLS.f90.o
 
 # target to build an object file
 WNNLS.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNNLS.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNNLS.f90.o
 .PHONY : WNNLS.f90.o
 
 WNNLS.i: WNNLS.f90.i
@@ -380,7 +380,7 @@ WNNLS.i: WNNLS.f90.i
 
 # target to preprocess a source file
 WNNLS.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNNLS.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNNLS.f90.i
 .PHONY : WNNLS.f90.i
 
 WNNLS.s: WNNLS.f90.s
@@ -388,7 +388,7 @@ WNNLS.s: WNNLS.f90.s
 
 # target to generate assembly for a file
 WNNLS.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNNLS.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/WNNLS.f90.s
 .PHONY : WNNLS.f90.s
 
 XERABT.o: XERABT.f90.o
@@ -396,7 +396,7 @@ XERABT.o: XERABT.f90.o
 
 # target to build an object file
 XERABT.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERABT.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERABT.f90.o
 .PHONY : XERABT.f90.o
 
 XERABT.i: XERABT.f90.i
@@ -404,7 +404,7 @@ XERABT.i: XERABT.f90.i
 
 # target to preprocess a source file
 XERABT.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERABT.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERABT.f90.i
 .PHONY : XERABT.f90.i
 
 XERABT.s: XERABT.f90.s
@@ -412,7 +412,7 @@ XERABT.s: XERABT.f90.s
 
 # target to generate assembly for a file
 XERABT.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERABT.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERABT.f90.s
 .PHONY : XERABT.f90.s
 
 XERCTL.o: XERCTL.f90.o
@@ -420,7 +420,7 @@ XERCTL.o: XERCTL.f90.o
 
 # target to build an object file
 XERCTL.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERCTL.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERCTL.f90.o
 .PHONY : XERCTL.f90.o
 
 XERCTL.i: XERCTL.f90.i
@@ -428,7 +428,7 @@ XERCTL.i: XERCTL.f90.i
 
 # target to preprocess a source file
 XERCTL.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERCTL.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERCTL.f90.i
 .PHONY : XERCTL.f90.i
 
 XERCTL.s: XERCTL.f90.s
@@ -436,7 +436,7 @@ XERCTL.s: XERCTL.f90.s
 
 # target to generate assembly for a file
 XERCTL.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERCTL.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERCTL.f90.s
 .PHONY : XERCTL.f90.s
 
 XERPRT.o: XERPRT.f90.o
@@ -444,7 +444,7 @@ XERPRT.o: XERPRT.f90.o
 
 # target to build an object file
 XERPRT.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERPRT.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERPRT.f90.o
 .PHONY : XERPRT.f90.o
 
 XERPRT.i: XERPRT.f90.i
@@ -452,7 +452,7 @@ XERPRT.i: XERPRT.f90.i
 
 # target to preprocess a source file
 XERPRT.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERPRT.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERPRT.f90.i
 .PHONY : XERPRT.f90.i
 
 XERPRT.s: XERPRT.f90.s
@@ -460,7 +460,7 @@ XERPRT.s: XERPRT.f90.s
 
 # target to generate assembly for a file
 XERPRT.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERPRT.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERPRT.f90.s
 .PHONY : XERPRT.f90.s
 
 XERROR.o: XERROR.f90.o
@@ -468,7 +468,7 @@ XERROR.o: XERROR.f90.o
 
 # target to build an object file
 XERROR.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERROR.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERROR.f90.o
 .PHONY : XERROR.f90.o
 
 XERROR.i: XERROR.f90.i
@@ -476,7 +476,7 @@ XERROR.i: XERROR.f90.i
 
 # target to preprocess a source file
 XERROR.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERROR.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERROR.f90.i
 .PHONY : XERROR.f90.i
 
 XERROR.s: XERROR.f90.s
@@ -484,7 +484,7 @@ XERROR.s: XERROR.f90.s
 
 # target to generate assembly for a file
 XERROR.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERROR.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERROR.f90.s
 .PHONY : XERROR.f90.s
 
 XERRWV.o: XERRWV.f90.o
@@ -492,7 +492,7 @@ XERRWV.o: XERRWV.f90.o
 
 # target to build an object file
 XERRWV.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERRWV.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERRWV.f90.o
 .PHONY : XERRWV.f90.o
 
 XERRWV.i: XERRWV.f90.i
@@ -500,7 +500,7 @@ XERRWV.i: XERRWV.f90.i
 
 # target to preprocess a source file
 XERRWV.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERRWV.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERRWV.f90.i
 .PHONY : XERRWV.f90.i
 
 XERRWV.s: XERRWV.f90.s
@@ -508,7 +508,7 @@ XERRWV.s: XERRWV.f90.s
 
 # target to generate assembly for a file
 XERRWV.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERRWV.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERRWV.f90.s
 .PHONY : XERRWV.f90.s
 
 XERSAV.o: XERSAV.f90.o
@@ -516,7 +516,7 @@ XERSAV.o: XERSAV.f90.o
 
 # target to build an object file
 XERSAV.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERSAV.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERSAV.f90.o
 .PHONY : XERSAV.f90.o
 
 XERSAV.i: XERSAV.f90.i
@@ -524,7 +524,7 @@ XERSAV.i: XERSAV.f90.i
 
 # target to preprocess a source file
 XERSAV.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERSAV.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERSAV.f90.i
 .PHONY : XERSAV.f90.i
 
 XERSAV.s: XERSAV.f90.s
@@ -532,7 +532,7 @@ XERSAV.s: XERSAV.f90.s
 
 # target to generate assembly for a file
 XERSAV.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERSAV.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XERSAV.f90.s
 .PHONY : XERSAV.f90.s
 
 XGETUA.o: XGETUA.f90.o
@@ -540,7 +540,7 @@ XGETUA.o: XGETUA.f90.o
 
 # target to build an object file
 XGETUA.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XGETUA.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XGETUA.f90.o
 .PHONY : XGETUA.f90.o
 
 XGETUA.i: XGETUA.f90.i
@@ -548,7 +548,7 @@ XGETUA.i: XGETUA.f90.i
 
 # target to preprocess a source file
 XGETUA.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XGETUA.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XGETUA.f90.i
 .PHONY : XGETUA.f90.i
 
 XGETUA.s: XGETUA.f90.s
@@ -556,7 +556,7 @@ XGETUA.s: XGETUA.f90.s
 
 # target to generate assembly for a file
 XGETUA.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XGETUA.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/XGETUA.f90.s
 .PHONY : XGETUA.f90.s
 
 amatrix.o: amatrix.f90.o
@@ -564,7 +564,7 @@ amatrix.o: amatrix.f90.o
 
 # target to build an object file
 amatrix.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/amatrix.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/amatrix.f90.o
 .PHONY : amatrix.f90.o
 
 amatrix.i: amatrix.f90.i
@@ -572,7 +572,7 @@ amatrix.i: amatrix.f90.i
 
 # target to preprocess a source file
 amatrix.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/amatrix.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/amatrix.f90.i
 .PHONY : amatrix.f90.i
 
 amatrix.s: amatrix.f90.s
@@ -580,7 +580,7 @@ amatrix.s: amatrix.f90.s
 
 # target to generate assembly for a file
 amatrix.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/amatrix.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/amatrix.f90.s
 .PHONY : amatrix.f90.s
 
 create_rel_domain.o: create_rel_domain.f90.o
@@ -588,7 +588,7 @@ create_rel_domain.o: create_rel_domain.f90.o
 
 # target to build an object file
 create_rel_domain.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/create_rel_domain.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/create_rel_domain.f90.o
 .PHONY : create_rel_domain.f90.o
 
 create_rel_domain.i: create_rel_domain.f90.i
@@ -596,7 +596,7 @@ create_rel_domain.i: create_rel_domain.f90.i
 
 # target to preprocess a source file
 create_rel_domain.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/create_rel_domain.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/create_rel_domain.f90.i
 .PHONY : create_rel_domain.f90.i
 
 create_rel_domain.s: create_rel_domain.f90.s
@@ -604,7 +604,7 @@ create_rel_domain.s: create_rel_domain.f90.s
 
 # target to generate assembly for a file
 create_rel_domain.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/create_rel_domain.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/create_rel_domain.f90.s
 .PHONY : create_rel_domain.f90.s
 
 fft99.o: fft99.f90.o
@@ -612,7 +612,7 @@ fft99.o: fft99.f90.o
 
 # target to build an object file
 fft99.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/fft99.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/fft99.f90.o
 .PHONY : fft99.f90.o
 
 fft99.i: fft99.f90.i
@@ -620,7 +620,7 @@ fft99.i: fft99.f90.i
 
 # target to preprocess a source file
 fft99.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/fft99.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/fft99.f90.i
 .PHONY : fft99.f90.i
 
 fft99.s: fft99.f90.s
@@ -628,7 +628,7 @@ fft99.s: fft99.f90.s
 
 # target to generate assembly for a file
 fft99.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/fft99.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/fft99.f90.s
 .PHONY : fft99.f90.s
 
 landcmsk.o: landcmsk.f90.o
@@ -636,7 +636,7 @@ landcmsk.o: landcmsk.f90.o
 
 # target to build an object file
 landcmsk.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/landcmsk.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/landcmsk.f90.o
 .PHONY : landcmsk.f90.o
 
 landcmsk.i: landcmsk.f90.i
@@ -644,7 +644,7 @@ landcmsk.i: landcmsk.f90.i
 
 # target to preprocess a source file
 landcmsk.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/landcmsk.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/landcmsk.f90.i
 .PHONY : landcmsk.f90.i
 
 landcmsk.s: landcmsk.f90.s
@@ -652,7 +652,7 @@ landcmsk.s: landcmsk.f90.s
 
 # target to generate assembly for a file
 landcmsk.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/landcmsk.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/landcmsk.f90.s
 .PHONY : landcmsk.f90.s
 
 modules.o: modules.f90.o
@@ -660,7 +660,7 @@ modules.o: modules.f90.o
 
 # target to build an object file
 modules.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/modules.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/modules.f90.o
 .PHONY : modules.f90.o
 
 modules.i: modules.f90.i
@@ -668,7 +668,7 @@ modules.i: modules.f90.i
 
 # target to preprocess a source file
 modules.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/modules.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/modules.f90.i
 .PHONY : modules.f90.i
 
 modules.s: modules.f90.s
@@ -676,7 +676,7 @@ modules.s: modules.f90.s
 
 # target to generate assembly for a file
 modules.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/modules.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/modules.f90.s
 .PHONY : modules.f90.s
 
 rodist.o: rodist.f90.o
@@ -684,7 +684,7 @@ rodist.o: rodist.f90.o
 
 # target to build an object file
 rodist.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/rodist.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/rodist.f90.o
 .PHONY : rodist.f90.o
 
 rodist.i: rodist.f90.i
@@ -692,7 +692,7 @@ rodist.i: rodist.f90.i
 
 # target to preprocess a source file
 rodist.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/rodist.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/rodist.f90.i
 .PHONY : rodist.f90.i
 
 rodist.s: rodist.f90.s
@@ -700,7 +700,7 @@ rodist.s: rodist.f90.s
 
 # target to generate assembly for a file
 rodist.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/rodist.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/rodist.f90.s
 .PHONY : rodist.f90.s
 
 sig_p_convt.o: sig_p_convt.f90.o
@@ -708,7 +708,7 @@ sig_p_convt.o: sig_p_convt.f90.o
 
 # target to build an object file
 sig_p_convt.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/sig_p_convt.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/sig_p_convt.f90.o
 .PHONY : sig_p_convt.f90.o
 
 sig_p_convt.i: sig_p_convt.f90.i
@@ -716,7 +716,7 @@ sig_p_convt.i: sig_p_convt.f90.i
 
 # target to preprocess a source file
 sig_p_convt.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/sig_p_convt.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/sig_p_convt.f90.i
 .PHONY : sig_p_convt.f90.i
 
 sig_p_convt.s: sig_p_convt.f90.s
@@ -724,7 +724,7 @@ sig_p_convt.s: sig_p_convt.f90.s
 
 # target to generate assembly for a file
 sig_p_convt.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/sig_p_convt.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/sig_p_convt.f90.s
 .PHONY : sig_p_convt.f90.s
 
 split.o: split.f90.o
@@ -732,7 +732,7 @@ split.o: split.f90.o
 
 # target to build an object file
 split.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/split.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/split.f90.o
 .PHONY : split.f90.o
 
 split.i: split.f90.i
@@ -740,7 +740,7 @@ split.i: split.f90.i
 
 # target to preprocess a source file
 split.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/split.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/split.f90.i
 .PHONY : split.f90.i
 
 split.s: split.f90.s
@@ -748,7 +748,7 @@ split.s: split.f90.s
 
 # target to generate assembly for a file
 split.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/split.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/split.f90.s
 .PHONY : split.f90.s
 
 srotm.o: srotm.f90.o
@@ -756,7 +756,7 @@ srotm.o: srotm.f90.o
 
 # target to build an object file
 srotm.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotm.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotm.f90.o
 .PHONY : srotm.f90.o
 
 srotm.i: srotm.f90.i
@@ -764,7 +764,7 @@ srotm.i: srotm.f90.i
 
 # target to preprocess a source file
 srotm.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotm.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotm.f90.i
 .PHONY : srotm.f90.i
 
 srotm.s: srotm.f90.s
@@ -772,7 +772,7 @@ srotm.s: srotm.f90.s
 
 # target to generate assembly for a file
 srotm.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotm.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotm.f90.s
 .PHONY : srotm.f90.s
 
 srotmg.o: srotmg.f90.o
@@ -780,7 +780,7 @@ srotmg.o: srotmg.f90.o
 
 # target to build an object file
 srotmg.f90.o:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotmg.f90.o
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotmg.f90.o
 .PHONY : srotmg.f90.o
 
 srotmg.i: srotmg.f90.i
@@ -788,7 +788,7 @@ srotmg.i: srotmg.f90.i
 
 # target to preprocess a source file
 srotmg.f90.i:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotmg.f90.i
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotmg.f90.i
 .PHONY : srotmg.f90.i
 
 srotmg.s: srotmg.f90.s
@@ -796,7 +796,7 @@ srotmg.s: srotmg.f90.s
 
 # target to generate assembly for a file
 srotmg.f90.s:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotmg.f90.s
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(MAKE) $(MAKESILENT) -f split/CMakeFiles/hafs_vi_split.x.dir/build.make split/CMakeFiles/hafs_vi_split.x.dir/srotmg.f90.s
 .PHONY : srotmg.f90.s
 
 # Help Target
@@ -901,6 +901,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /ncrc/home2/Matthew.Morin/NGGPS/VI_dev/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /ncrc/home2/Matthew.Morin/NGGPS/VI/HAFS_tools/sorc/hafs_tools.fd/sorc/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
