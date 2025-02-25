@@ -62,8 +62,7 @@ hrd_multistorm_keygen=functools.cmp_to_key(hrd_multistorm_sorter)
 # through a datetime.datetime.format to get the final filename.
 vitfiles=[
     '/lfs4/HFIP/hwrf-data/hwrf-input/SYNDAT-PLUS/syndat_tcvitals.%Y',
-    '/gpfs/f5/gfdl_w/scratch/Matthew.Morin/NGGPS/vitals/syndat_tcvitals.%Y',
-    '/gpfs/f5/gfdl_w/scratch/Kun.Gao/SYNDAT-PLUS/syndat_tcvitals.%Y']
+    '/gpfs/f5/gfdl_w/scratch/Matthew.Morin/NGGPS/vitals/syndat_tcvitals.%Y']
 
 if 'SYNDAThafs' in os.environ:
     vitfiles=[os.environ['SYNDAThafs']+'/syndat_tcvitals.%Y',]
@@ -81,15 +80,15 @@ def main(args):
     strcycle=args[1]
     cyc=tcutil.numerics.to_datetime(strcycle)
     YMDH=cyc.strftime('%Y%m%d%H')
-   
+
     # 2nd arg
     if len(args) >=3:
      basin=args[2]
 
     # 3rd arg
-    if len(args) >=4: 
+    if len(args) >=4:
       min_wind=float(args[3])
-     
+
     # 4th arg
     if len(args) >=5:
       max_lat=float(args[4])
