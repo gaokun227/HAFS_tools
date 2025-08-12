@@ -68,7 +68,7 @@
   real, allocatable, dimension(:,:) :: glon,glat
 
   integer  :: i, j, k, flid_in, flid_out, ncid, ndims, nrecord
-  real     :: rot_lon, rot_lat, ptop
+  real     :: rot_lon, rot_lat, ptop, tmp
   integer, dimension(nf90_max_var_dims) :: dims
   real, allocatable, dimension(:,:,:,:) :: dat4, dat41, dat42, dat43, u, v
   real, allocatable, dimension(:,:,:)   :: dat3, dat31
@@ -222,6 +222,24 @@
              dstgrid%grid_lont(int(nx/2),int(ny/2)), dstgrid%grid_latt(int(nx/2),int(ny/2))
      endif
      call cal_src_dst_grid_weight(ingrid, dstgrid)
+
+     ! KGao fix on 08/12/2025: ensure the sum of src_weight is equal to 1 
+      do i = 1,nx
+         do j = 1,ny
+            tmp = 0.
+            do k = 1,gwt%gwt_t(i,j)%src_points
+               tmp = tmp + gwt%gwt_t(i,j)%src_weight(k)
+            enddo
+            if (tmp <= 0.99 ) then
+               print*, 'Note: fixing gwt%gwt_t(i,j)%src_weight'
+               print*, 'i,j =', i, j
+               print*, 'src weight before', gwt%gwt_t(i,j)%src_weight(:)
+               !print*, 'dst weight', gwt%gwt_t(i,j)%dst_weight(:)
+               gwt%gwt_t(i,j)%src_weight(:) = gwt%gwt_t(i,j)%src_weight(:)/tmp
+               print*, 'src weight after', gwt%gwt_t(i,j)%src_weight(:)
+            endif
+         enddo
+      enddo
 
      !-------------------------------------------------------------------------
      ! 6 --- dst files
