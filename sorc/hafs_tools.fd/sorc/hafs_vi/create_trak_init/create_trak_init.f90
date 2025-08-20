@@ -78,6 +78,7 @@ program create_trak_init
 
   13 format(5x,A3,13x,I6,1x,I2,3x,I3,A1,1x,I4,A1)                 ! Input fort.11(tcvital) format
   65 format(A2,2x,A2,4x,I6,I2,12x,I3,2x,I3,A1,2x,I4,A1)           ! Input fort.12(ATCF) format
-  15 format('72HDAS',I6,I2,14I5,'   0   0   0   0   0   0',1x,3A) ! Output(trak.fnl.all_gfs) format
+  !15 format('72HDAS',I6,I2,14I5,'   0   0   0   0   0   0',1x,3A) ! Output(trak.fnl.all_gfs) format
+  15 format('72HDAS',I6,I2,14I6,'   0   0   0   0   0   0',1x,3A) ! Output(trak.fnl.all_gfs) format ![MJM:2025MAY29]
 
 end program create_trak_init
