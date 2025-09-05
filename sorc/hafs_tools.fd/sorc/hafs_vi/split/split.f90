@@ -345,7 +345,7 @@
       ! KGao: stop the code if PSFX is too large, indicating there are issues
       IF (PSFX .GT. 1E6) THEN
          print*, 'Warning: input data has missing values !!!'
-         STOP
+         STOP 1
       ENDIF
 
 ! constant P
@@ -1461,8 +1461,9 @@
        END DO
 
        IF(N_CHECK.EQ.0)THEN
-         print*,'increase RDST1'
-         stop
+         print*,'ALERT: NSUM(I,J)=',NSUM(I,J),' RDST1=',RDST1
+         print*,'ERROR: NSUM(I,J)<=5! You need to increase RDST1. Aborting...'
+         stop 1
        END IF
 
        print*,'corners=',XLON(1,1),XLON(INX,JNX)
@@ -3026,7 +3027,7 @@
         ! KGao - kill the program if strange wind value shows up 
         IF ( ABS(TWM(J)) .GT. 1e4) THEN
            print*, 'Warning: MEAN TANGENTIAL WIND is too large'
-           STOP
+           STOP 1
         ENDIF 
 
       enddo

@@ -3,13 +3,17 @@
 #############################################################
 module unload PrgEnv-pgi PrgEnv-intel PrgEnv-gnu
 module load   PrgEnv-intel
+module rm intel-classic
+module rm intel-oneapi
 module rm intel
 module rm gcc
 module load intel-classic/2023.2.0
+module unload cray-libsci
 module load cray-hdf5
 module load cray-netcdf
 module load craype-hugepages4M
-module load cmake/3.23.1
+#module load cmake/3.23.1
+module load cmake/3.27.9
 
 setenv CMAKE_C_COMPILER cc
 setenv CMAKE_CXX_COMPILER CC
