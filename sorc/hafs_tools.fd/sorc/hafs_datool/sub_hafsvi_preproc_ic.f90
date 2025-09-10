@@ -230,12 +230,18 @@
             do k = 1,gwt%gwt_t(i,j)%src_points
                tmp = tmp + gwt%gwt_t(i,j)%src_weight(k)
             enddo
-            if (tmp <= 0.99 ) then
+            if (tmp >= 0.01 .and. tmp <= 0.99 ) then
                print*, 'Note: fixing gwt%gwt_t(i,j)%src_weight'
                print*, 'i,j =', i, j
                print*, 'src weight before', gwt%gwt_t(i,j)%src_weight(:)
                !print*, 'dst weight', gwt%gwt_t(i,j)%dst_weight(:)
                gwt%gwt_t(i,j)%src_weight(:) = gwt%gwt_t(i,j)%src_weight(:)/tmp
+               print*, 'src weight after', gwt%gwt_t(i,j)%src_weight(:)
+            else if (tmp < 0.01 ) then
+               print*, 'Note: fixing gwt%gwt_t(i,j)%src_weight'
+               print*, 'i,j =', i, j
+               print*, 'src weight before', gwt%gwt_t(i,j)%src_weight(:)
+               gwt%gwt_t(i,j)%src_weight(:) = 1./gwt%gwt_t(i,j)%src_points
                print*, 'src weight after', gwt%gwt_t(i,j)%src_weight(:)
             endif
          enddo
