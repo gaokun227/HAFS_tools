@@ -159,6 +159,12 @@
 
       CLOSE(IUNIT)
 
+      ! KGao: stop the program if the input data look suspicious
+      IF ( minval(T1(:,:,1)) .LT. 200.) THEN
+         print*, 'Warning: input data has suspicious temp values !!!'
+         STOP
+      ENDIF
+
       ! KGao
       !print*, 'KGao Checking LAT LON'
       !print*, HLON(1,1:5)

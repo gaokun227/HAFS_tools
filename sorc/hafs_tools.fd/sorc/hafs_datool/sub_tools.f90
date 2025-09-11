@@ -801,6 +801,26 @@
         endif
      endif
 
+     ! KGao: check if src_weight and dst_weight sum up to 1 
+     !dis = 0.
+     !do k = 1,gw(i,j)%src_points
+     !   dis = dis + gw(i,j)%src_weight(k)
+     !enddo
+     !if (dis < 0.95) print*, 'Warning: src_weight not sum up to 1', i, j, gw(i,j)%src_weight
+
+     if (dst_weight < .99) then 
+       dis = 0.
+       do k = 1,gw(i,j)%dst_points
+          dis = dis + gw(i,j)%dst_weight(k)
+       enddo
+       if (dis < 0.95) then
+          print*, '================'
+          print*, 'Warning location 1: dst_weight not sum up to 1', i, j,dst_weight
+          print*, 'src_weight:', gw(i,j)%src_weight
+          print*, 'dst_weight:', gw(i,j)%dst_weight
+       endif
+     endif
+
      !---combine src and dst weight
      if ( gw(i,j)%src_points > 0 ) then
         gw(i,j)%src_weight(1:gw(i,j)%src_points)=(1.0-dst_weight)*gw(i,j)%src_weight(1:gw(i,j)%src_points)
@@ -808,6 +828,37 @@
      else
         gw(i,j)%src_weight = 0.
      endif
+
+     ! KGao check !!!
+     if (dst_weight < .99) then
+       dis = 0.
+       do k = 1,gw(i,j)%dst_points
+          dis = dis + gw(i,j)%dst_weight(k)
+       enddo
+       do k = 1,gw(i,j)%src_points
+          dis = dis + gw(i,j)%src_weight(k)
+       enddo
+
+       if (dis < 0.99) then
+          print*, '================'
+          print*, 'Warning location 2: weight not sum up to 1', i, j,dst_weight
+          print*, 'src_weight:', gw(i,j)%src_weight
+          print*, 'dst_weight:', gw(i,j)%dst_weight
+       endif
+     endif
+
+     ! KGao debug
+     !if (i == 10 .and. j == 10) then
+     !    print *, '================================================================'
+
+      !  print*, i,j
+      !  print*, gw(i,j)%src_weight(1:gw(i,j)%src_points)
+
+      !  print *, '======='
+
+       ! print*, gw(i,j)%dst_weight(1:gw(i,j)%dst_points)
+     !endif
+    
 
   enddo; enddo
 
